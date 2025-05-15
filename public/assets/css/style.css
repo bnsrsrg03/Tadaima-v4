@@ -60,7 +60,9 @@ header {
     align-items: center;
     justify-content: flex-end;
     gap: 20px;
+    flex: 1;
 }
+
 
 .nav-links {
     display: flex;
@@ -135,7 +137,9 @@ header {
     font-size: 24px;
     cursor: pointer;
     color: #fff;
+    margin-right: 20px; 
 }
+
 
 /* === Responsive === */
 @media (max-width: 768px) {

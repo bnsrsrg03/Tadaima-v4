@@ -188,7 +188,7 @@
 
 <section class="jam-operasional" style="background-color: #b30000; padding: 20px 0;">
   <div class="container text-center">
-    <h4 class="text-white font-bold mb-1">Jam Operasional</h4>
+    <h4 class="text-white font-bold mb-1 text-3xl">Jam Operasional</h4>
     <p class="text-white mb-0">
       @foreach ($grouped as $time => $days)
         {{ formatHari($days) }} : {{ $time }}<br>

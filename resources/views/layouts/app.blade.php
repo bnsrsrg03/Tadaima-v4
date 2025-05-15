@@ -19,19 +19,17 @@
     @stack('styles')
 </head>
 <body>
-</div>
 <header class="navbar">
     <div class="navbar-container">
         <div class="navbar-left">
             <div class="logo">
                 <img src="{{ asset('assets/images/logo.jpg') }}" alt="Logo Tadaima">
             </div>
+        </div>
+        <nav class="navbar-right">
             <button class="menu-toggle" id="menu-toggle">
                 <i class="fa fa-bars"></i>
             </button>
-            
-        </div>
-        <nav class="navbar-right">
             <ul class="nav-links" id="nav-links">
                 <li><a href="{{ route('home') }}">Beranda</a></li>
                 <li><a href="{{ route('halaman.tentang') }}">Tentang Kami</a></li>
@@ -53,6 +51,7 @@
         </nav>
     </div>
 </header>
+
 
 <main>
     @yield('content')
