@@ -1,0 +1,759 @@
+body {
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+}
+html, body {
+    max-width: 100%;
+    overflow-x: hidden;
+  }
+  
+
+.container {
+    width: 1440px;
+    margin: 0 auto; 
+    padding: 20px;
+}
+
+
+header {
+    background-color: #AA1D1D;
+    padding: 10px 30px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 80px;
+}
+
+.navbar {
+    position: relative;
+    z-index: 999;
+}
+
+.navbar-container {
+    display: flex;
+    align-items: center;
+    width: 100%;
+}
+
+.navbar-left {
+    display: flex;
+    align-items: center;
+    gap: 30px;
+    margin-right: auto;
+}
+
+.logo {
+    padding-left: 30px; 
+}
+
+.logo img {
+    height: 56px;
+    width: 56px;
+    object-fit: cover;
+    border-radius: 50%;
+}
+
+.navbar-right {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 20px;
+}
+
+.nav-links {
+    display: flex;
+    align-items: center;
+    list-style: none;
+    gap: 35px; 
+    margin: 0;
+    padding: 0;
+}
+
+.nav-links li a {
+    color: white;
+    text-decoration: none;
+    font-weight: 400; 
+    font-size: 18px;
+    padding: 8px 12px;
+    transition: all 0.3s ease;
+    font-family: 'Inter', sans-serif;
+}
+
+.nav-links li a:hover,
+.nav-profile a:hover {
+    background-color: #AA1D1D;
+    border-radius: 5px;
+    border-bottom: 2px solid #fff;
+    color: #FFD700;
+}
+
+.dropdown {
+    position: relative;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #AA1D1D;
+    min-width: 150px;
+    z-index: 1000;
+    top: 100%;
+    left: 0;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+    list-style: none; 
+    padding: 0;
+    margin: 0;
+}
+
+
+.dropdown-content li a {
+    display: block;
+    padding: 10px;
+    color: white;
+    font-family: 'Inter', sans-serif;
+    font-weight: 400; 
+    font-size: 18px;
+}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+.nav-profile a {
+    color: white;
+    font-size: 20px;
+    text-decoration: none;
+    padding: 8px 12px;
+}
+
+.menu-toggle {
+    display: none;
+    background: none;
+    border: none;
+    font-size: 24px;
+    cursor: pointer;
+    color: #fff;
+}
+
+/* === Responsive === */
+@media (max-width: 768px) {
+    .menu-toggle {
+        display: block;
+    }
+
+    .nav-links {
+        display: none;
+        flex-direction: column;
+        background-color: #AA1D1D; /* FIXED: tetap merah saat dikecilkan */
+        width: 100%;
+        position: absolute;
+        top: 70px;
+        left: 0;
+        z-index: 99;
+        padding: 20px;
+    }
+
+    .nav-links li a {
+        color: white;
+    }
+
+    .nav-links.active {
+        display: flex;
+    }
+}
+
+
+/* === Hero Section === */
+.hero {
+    position: relative;
+    text-align: center;
+    color: white;
+}
+
+.hero img {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+    max-height: 95vh;
+    display: block;
+    margin: 0 auto;
+}
+
+.hero h1 {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 2;
+}
+
+.hero p {
+    position: absolute;
+    top: 60%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 36px;
+    z-index: 2;
+    font-family: 'Inter', sans-serif; 
+}
+
+.hero::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.3);
+    z-index: 1;
+}
+
+@font-face {
+    font-family: 'Shikamaru';
+    src: url('/assets/fonts/Shikamaru.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+.brand-title {
+    font-family: 'Shikamaru', sans-serif;
+    font-size: 110px; 
+    color: white;
+}
+
+/* === About Section === */
+.about {
+    margin: 3rem 0;
+    padding: 4rem 0;
+    background-color: #fff;
+}
+
+.about .container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 40px;
+    padding: 50px 20px;
+    border-radius: 10px;
+}
+
+.about img {
+    width: 500px;
+    max-width: 100%;
+    border-radius: 25px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+.about .text {
+    max-width: 600px;
+}
+
+.about .text h2 {
+    font-size: 30px;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+.about .text p {
+    font-size: 18px;
+    line-height: 1.6;
+    color: #333;
+    margin-bottom: 25px;
+}
+
+.about .btn {
+    background-color: #a51717;
+    color: white;
+    padding: 14px 28px;
+    border-radius: 30px;
+    font-size: 16px;
+    text-decoration: none;
+    font-weight: bold;
+    display: inline-block;
+    transition: background 0.3s ease;
+}
+
+.about .btn:hover {
+    background-color: #7e1212;
+}
+@media (max-width: 768px) {
+  .about .container {
+    flex-direction: column;
+    padding: 30px 15px;
+    gap: 30px;
+  }
+
+  .about img {
+    width: 100%;
+    max-width: 400px;
+    height: auto;
+    border-radius: 20px;
+  }
+
+  .about .text {
+    max-width: 100%;
+    text-align: center;
+  }
+
+  .about .text h2 {
+    font-size: 28px;
+  }
+
+  .about .text p {
+    font-size: 16px;
+  }
+
+  .about .btn {
+    padding: 12px 24px;
+    font-size: 14px;
+  }
+}
+
+
+
+.best-seller-badge {
+    position: absolute;
+    top: -10px;
+    left: -10px;
+    width: 80px;
+    transform: rotate(-20deg);
+    z-index: 10;
+
+}
+
+/*Profil Karyawan*/
+.tim-kami {
+    position: relative;
+    padding: 4rem 0;
+    z-index: 0;
+  }
+  
+  .tim-kami::before {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    height: 60%;
+    width: 100%;
+    background: linear-gradient(to right, #AA1D1D, #F17C7C); 
+    z-index: -1;
+  }
+  
+  .tim-kami .container h2 {
+    text-align: center;
+    font-weight: 700;
+    margin-bottom: 2.5rem;
+  }
+
+  .tim-kami .row {
+    --bs-gutter-x: 1.5rem;
+  }
+  @media (min-width: 1200px) {
+    .tim-kami .col-karyawan { flex: 0 0 20%; max-width: 20%; }
+  }
+  @media (min-width: 768px) and (max-width: 1199.98px) {
+    .tim-kami .col-karyawan { flex: 0 0 33.3333%; max-width: 33.3333%; }
+  }
+  @media (max-width: 767.98px) {
+    .tim-kami .col-karyawan { flex: 0 0 100%; max-width: 100%; }
+  }
+  
+
+  .tim-kami .card {
+    border: none;
+    border-radius: 0.75rem;
+    overflow: hidden;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s, box-shadow 0.3s;
+  }
+  .tim-kami .card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+  }
+ 
+  .tim-kami .card-img-top {
+    width: 414px;
+    height: 350px;
+    object-fit: cover;
+  }
+  
+  .tim-kami .card-body {
+    padding: 1rem;
+    background-color: #fff;
+  }
+  .tim-kami .card-title {
+    font-size: 18px;
+    font-weight: 600;
+    margin-bottom: 0.25rem;
+    color: #020202;
+  }
+  .tim-kami .card-text {
+    font-size: 16px;
+    color: #000000;
+    text-transform: capitalize;
+  }
+
+  .img-karyawan {
+    width: 310px;
+    height: 413px;
+    object-fit: cover;
+    object-position: center;
+    border-radius: 0.75rem;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  }
+  
+  
+  @media (max-width: 768px) {
+    .position-absolute.bottom-0.end-0.p-4 {
+        width: 100%;
+        left: 0;
+        right: 0;
+        padding: 1rem;
+    }
+    .position-absolute.bottom-0.end-0.p-4 img {
+        width: 100%;
+    }
+}
+@keyframes scroll {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+.animate-scroll {
+  animation: scroll 30s linear infinite;
+}
+
+
+#scrollToTopBtn {
+    position: fixed;
+    bottom: 100px; 
+    right: 24px; 
+    z-index: 99; 
+    background-color: #b30000;
+    color: white;
+    border: none;
+    padding: 12px 16px;
+    border-radius: 50%;
+    font-size: 20px;
+    cursor: pointer;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+    display: none;
+    transition: all 0.3s ease;
+}
+
+  #scrollToTopBtn:hover {
+    background-color: #ff4c4c;
+  }
+  @media (max-width: 768px) {
+    #scrollToTopBtn {
+      bottom: 120px; 
+    }
+  }
+  #scrollToTopBtn i {
+    transition: color 0.3s ease;
+    color: red; 
+}
+
+#scrollToTopBtn:hover i {
+    color: white; 
+}
+
+  /*tulisan denah*/
+  .typing {
+  opacity: 0;
+  width: 0;
+  white-space: nowrap;
+  overflow: hidden;
+  border-right: 2px solid #fff;
+  animation:
+    fadeInText 2s forwards   0.5s,
+    typing      3s steps(30) forwards 0.5s,
+    blink       0.7s step-end infinite 3.5s;
+}
+
+@keyframes fadeInText {
+  to { opacity: 1; }
+}
+
+@keyframes typing {
+  to { width: 100%; }
+}
+
+@keyframes blink {
+  50% { border-color: transparent; }
+}
+.typing {
+    display: inline-block;  
+    opacity: 0;
+    width: 0;
+    white-space: nowrap;
+    overflow: hidden;
+    border-right: 2px solid #fff;
+    animation:
+      fadeInText 2s forwards   0.5s,
+      typing      3s steps(30) forwards 0.5s,
+      blink       0.7s step-end infinite 3.5s;
+  }
+  
+  @keyframes fadeInText {
+    to { opacity: 1; }
+  }
+  
+  @keyframes typing {
+    to { width: 100%; }
+  }
+  
+  @keyframes blink {
+    50% { border-color: transparent; }
+  }
+
+
+/*sejarah*/
+.sejarah-singkat {
+  padding: 80px 24px;
+  background-image: linear-gradient(to bottom, rgba(255, 255, 255, 0.85), rgba(255, 255, 255, 0.85)),
+                    url('/assets/images/sejarah2.jpg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed; 
+  color: #000000;
+  font-family: 'Inter', sans-serif;
+  border-radius: 16px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  transition: background 0.3s ease-in-out;
+}
+
+  
+  .container {
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+  
+  .judul-sejarah {
+    font-size: 40px;
+    text-align: center;
+    font-weight: bold;
+    margin-bottom: 40px;
+    position: relative;
+    font-family: 'Inter', sans-serif;
+  }
+  
+  .konten-sejarah {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    gap: 40px;
+    padding: 20px;
+  }
+  
+  .konten-sejarah .gambar {
+    margin-top: 40px; 
+  }
+  
+  .konten-sejarah .gambar img {
+    width: 400px;
+    height: 600px;
+    object-fit: cover;
+    border-radius: 12px;
+  }
+  
+  .konten-sejarah .teks {
+    max-width: 900px;
+    font-size: 18px;
+    font-family: 'Inter', sans-serif;
+    line-height: 1.8;
+    text-align: justify;
+    overflow: visible;
+    font-weight: 500;
+  }
+  
+  
+  @media (min-width: 1024px) {
+    .konten-sejarah {
+      flex-direction: row;
+      align-items: flex-start;
+    }
+  
+    .konten-sejarah .gambar {
+      flex: 1;
+    }
+  
+    .konten-sejarah .teks {
+      flex: 2;
+      padding-left: 40px;
+    }
+  }
+  
+  .sejarah-singkat .konten-sejarah {
+  display: flex;
+  gap: 20px;
+  align-items: flex-start;
+}
+
+.sejarah-singkat .gambar img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+  border-radius: 8px;
+}
+
+/* Media query untuk layar kecil (HP) */
+@media (max-width: 768px) {
+  .sejarah-singkat .konten-sejarah {
+    flex-direction: column;
+  }
+  .sejarah-singkat .gambar,
+  .sejarah-singkat .teks {
+    width: 100%;
+  }
+  .sejarah-singkat .gambar {
+    margin-bottom: 15px;
+  }
+}
+
+  
+.galeri {
+  padding-top: 80px;    
+  padding-bottom: 80px;  
+}
+
+/* === Footer === */
+footer {
+    background-color: #AA1D1D;
+    color: white;
+    font-family: Arial, sans-serif;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    min-height: 300px; 
+}
+
+.footer-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    width: 100%;
+    padding: 40px ;
+    box-sizing: border-box;
+}
+
+.footer-left {
+  display: flex;
+  justify-content: flex-start;
+  padding-left: 80px;
+}
+
+.footer-right {
+    flex: 1;
+    display: flex;
+    justify-content: space-between;
+    gap: 30px;
+   padding: 40px 30px;
+}
+
+.footer-logo img {
+    width: 198px;
+    height: 185px;
+    object-fit: cover;
+    border-radius: 50%;
+}
+
+.footer-info,
+.footer-contact,
+.footer-sosmed {
+    max-width: 300px;
+    margin-top: 40px; 
+}
+
+.footer-info h4,
+.footer-contact h4,
+.footer-sosmed h4 {
+    margin-bottom: 5px;
+    font-size: 18px;
+}
+
+.footer-info p,
+.footer-contact p,
+.footer-sosmed p {
+    margin: 5px 0;
+    font-size: 14px;
+    line-height: 1.5;
+}
+
+.footer-contact a,
+.footer-sosmed a {
+    color: white;
+    text-decoration: underline;
+}
+
+
+.footer-bottom {
+  text-align: center;
+  font-size: 13px;
+  margin-top: 40px;
+  padding: 10px 0;
+  border-top: 1px solid #ffffff;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .footer-container {
+      flex-direction: column;
+      align-items: center;
+  }
+
+  .footer-info, .footer-sosmed {
+      max-width: 100%;
+      text-align: center;
+  }
+}
+
+
+i, svg {
+  font-size: 1rem;
+  width: auto;
+  height: auto;
+}
+
+.navbar i, .footer-sosmed i {
+  font-size: 20px;
+}
+
+.nav-profile i {
+  font-size: 22px;
+}
+
+.pagination i, .pagination svg {
+  width: 16px;
+  height: 16px;
+}
+
+/*Whattsap*/
+.whatsapp-button {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background-color: #25D366;
+  color: white;
+  padding: 10px 20px;
+  border-radius: 25px;
+  font-weight: bold;
+  text-decoration: none;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+  transition: background-color 0.3s;
+  z-index: 9999; 
+  font-size: 14px; 
+}
+
+.whatsapp-button:hover {
+  background-color: #1ebe5d;
+}
+
+.whatsapp-button i {
+  font-size: 25px; 
+  margin-right: 2px; 
+  vertical-align: middle; 
+}
