@@ -15,7 +15,7 @@
             <img src="{{ asset('assets/images/bestseller.png') }}" alt="Best Seller" class="best-seller-badge">
         @endif
 
-        <img src="{{ asset('storage/app/pubic/' . $menu->image) }}" 
+        <img src="{{ asset('storage/app/public/' . $menu->image) }}" 
              alt="{{ $menu->name }}" 
              class="card-img-top" 
              style="height: 300px; width: 100%; object-fit: cover;">
