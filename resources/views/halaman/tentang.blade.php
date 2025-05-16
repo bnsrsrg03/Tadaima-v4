@@ -112,7 +112,7 @@
           Browser Anda tidak mendukung tag video.
         </video>
       @else
-        <img src="{{ asset('storage/' . $galeri->image) }}" alt="Galeri"
+        <img src="{{ asset('storage/app/public/' . $galeri->image) }}" alt="Galeri"
              class="img-fluid"
              style="width: 100%; height: 100%; object-fit: cover; transition: 0.5s;">
       @endif
