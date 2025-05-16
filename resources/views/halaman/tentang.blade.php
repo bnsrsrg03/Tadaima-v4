@@ -11,7 +11,7 @@
     </h2>
     <div class="konten-sejarah">
       <div class="gambar">
-        <img src="/assets/images/sejarah2.jpg" alt="Logo Tadaima">
+        <img src="/assets/images/sejarah2.JPG" alt="Gambar Owner">
       </div>
       <div class="teks">
        <p>

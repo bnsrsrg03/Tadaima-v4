@@ -518,7 +518,7 @@ header {
 .sejarah-singkat {
   padding: 80px 24px;
   background-image: linear-gradient(to bottom, rgba(255, 255, 255, 0.85), rgba(255, 255, 255, 0.85)),
-                    url('/assets/images/sejarah2.jpg');
+                    url('/assets/images/sejarah2.JPG');
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
