@@ -36,7 +36,7 @@ class GaleriResource extends Resource
 
                     FileUpload::make('image')
                     ->image() // ini penting agar hanya gambar
-                    ->directory('galeri-images') // folder penyimpanan di storage/app/public/menu-images
+                    ->directory('storage/app/public/') // folder penyimpanan di storage/app/public/menu-images
                     ->required()
                     ->label('Gambar'),
             ]);
