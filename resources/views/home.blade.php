@@ -31,6 +31,8 @@
     </div>
 </section>
 
+@include('components.alasan')
+
 {{-- Denah  --}}
 <div class="position-relative text-white" data-aos="fade-up" data-aos-duration="1000">
 

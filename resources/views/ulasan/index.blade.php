@@ -62,7 +62,13 @@
             </div>
         </div>
     @endforeach
+
+    <!-- Pagination -->
+    <div class="pagination-links" style="text-align:center; margin-top: 30px;">
+        {{ $ulasans->links() }}
+    </div>
 </div>
+
 
 <script>
     function showModal() {
@@ -362,6 +368,72 @@
         padding-right: 20px;
         font-size: 28px;
         margin-top: 10px;
+    }
+}
+.pagination-links nav {
+    display: flex;
+    justify-content: center;
+    margin-top: 30px;
+}
+
+.pagination-links nav ul {
+    display: flex;
+    list-style: none;
+    padding: 0;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+.pagination-links nav li {
+    display: inline-block;
+}
+
+.pagination-links nav li a, 
+.pagination-links nav li span {
+    padding: 10px 16px;
+    background-color: white;
+    border: 1px solid #ddd;
+    border-radius: 12px;
+    text-decoration: none;
+    color: #444;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+    min-width: 45px;
+    text-align: center;
+    font-size: 16px !important;
+    line-height: 1;
+}
+
+.pagination-links nav li a:hover {
+    background-color: #28b6ff;
+    color: white;
+    transform: translateY(-2px);
+}
+
+.pagination-links nav li.active span {
+    background-color: #28b6ff;
+    color: white;
+    font-weight: bold;
+    border: 1px solid #28b6ff;
+    box-shadow: 0 2px 8px rgba(40, 182, 255, 0.3);
+}
+
+.pagination-links nav li.disabled span {
+    background-color: #f8f8f8;
+    color: #bbb;
+    cursor: not-allowed;
+    box-shadow: none;
+    border: 1px solid #eee;
+}
+@media (max-width: 576px) {
+    .pagination-links nav ul {
+        gap: 5px;
+    }
+
+    .pagination-links nav li a, 
+    .pagination-links nav li span {
+        padding: 8px 12px;
+        font-size: 14px;
     }
 }
 

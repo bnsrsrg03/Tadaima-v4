@@ -33,8 +33,6 @@
 </section>
 
 
-@include('components.alasan')
-
 
 <!-- karyawan -->
 <section class="tim-kami overflow-hidden">

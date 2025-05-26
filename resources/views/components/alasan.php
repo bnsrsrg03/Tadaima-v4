@@ -30,41 +30,43 @@
         <div class="col-12 col-lg-10">
 
 
-        <h2 class="text-center mb-5" style="font-family: 'Inter', sans-serif; font-size: 40px; font-weight: bold;">
+        <h2 class="text-center mb-5" style="font-family: 'Inter', sans-serif; font-size: 35px; font-weight: bold;">
             Kenapa harus di Tadaima ?
         </h2>
 
         <!-- Konten 1 -->
-        <div class="row align-items-center mb-5">
+            <div class="row align-items-center">
             <div class="col-md-6 text-center" data-aos="fade-right" data-aos-duration="500">
-                <img src="/assets/images/meja2.jpg" class="img-fluid rounded-circle"
-                     style="width: 370px; height: 370px; object-fit: cover;" loading="lazy" alt="Tempat nyaman">
+                <img src="/assets/images/about.jpg" class="img-fluid rounded-circle"
+                     style="width: 300px; height: 300px; object-fit: cover;" loading="lazy" alt="Menu beragam">
             </div>
             <div class="col-md-6" data-aos="fade-left" data-aos-duration="500">
-                <h4 style="font-family: 'Inter', sans-serif; font-size: 34px; color: #AA1D1D;">
-                    Tempat yang Bikin Nyaman
+                <h4 style="font-family: 'Inter', sans-serif; font-size: 27px; color: #AA1D1D;">
+                    Menu yang beragam
                 </h4>
-                <hr style="border: 2px solid orange; width: 480px;">
-                <p style="font-family: 'Inter', sans-serif; font-size: 22px; text-align: justify;">
-                    Dari interior kayu yang hangat, pencahayaan yang tidak terlalu terang, hingga pemilihan furnitur
-                    yang sederhana tapi fungsional. Semua dirancang untuk membuat pengunjung merasa tenang dan betah.
-                    Setiap sudut ruangan diatur agar tidak terasa sempit, memberikan suasana yang akrab namun tetap lega.
+                <hr style="border: 1px solid orange; width: 300px;">
+                <p style="font-family: 'Inter', sans-serif; font-size: 18px; text-align: justify;">
+                    Untuk pengalaman berbeda, kami menyediakan kombinasi menu yang beragam.
+                    Meskipun ramen menjadi menu andalan di Tadaima Ramen and Coffee, kami juga
+                    menawarkan berbagai hidangan lainnya, seperti cemilan, dan nasi goreng lokal yang khas.
+                    Selain itu, pengunjung juga bisa menikmati minuman berupa jus segar dan kopi hangat.
                 </p>
             </div>
         </div>
+      
 
         <!-- Konten 2 -->
         <div class="row align-items-center mb-5 flex-md-row-reverse">
             <div class="col-md-6 text-center" data-aos="fade-left" data-aos-duration="500">
                 <img src="/assets/images/keluarga.JPG" class="img-fluid rounded-circle"
-                     style="width: 370px; height: 370px; object-fit: cover;" loading="lazy" alt="Cocok ramean">
+                     style="width: 300px; height: 300px; object-fit: cover;" loading="lazy" alt="Cocok ramean">
             </div>
             <div class="col-md-6" data-aos="fade-right" data-aos-duration="500">
-                <h4 style="font-family: 'Inter', sans-serif; font-size: 34px; color: #AA1D1D;">
+                <h4 style="font-family: 'Inter', sans-serif; font-size: 27px; color: #AA1D1D;">
                     Cocok untuk Sendiri atau Rame
                 </h4>
-                <hr style="border: 1px solid orange; width: 550px;">
-                <p style="font-family: 'Inter', sans-serif; font-size: 22px; text-align: justify;">
+                <hr style="border: 1px solid orange; width: 450px;">
+                <p style="font-family: 'Inter', sans-serif; font-size: 18px; text-align: justify;">
                     Mau makan sendiri sambil baca buku atau kumpul bareng teman? Semua terasa pas di Tadaima.
                     Baik kamu datang sendiri untuk menikmati semangkuk ramen sambil membaca, atau datang bersama
                     teman dan keluarga, kami menyediakan tempat duduk yang sesuai. Meja tersedia untuk dua orang
@@ -74,21 +76,20 @@
         </div>
 
         <!-- Konten 3 -->
-        <div class="row align-items-center">
+       <div class="row align-items-center mb-5">
             <div class="col-md-6 text-center" data-aos="fade-right" data-aos-duration="500">
-                <img src="/assets/images/makanan.JPG" class="img-fluid rounded-circle"
-                     style="width: 370px; height: 370px; object-fit: cover;" loading="lazy" alt="Menu beragam">
+                <img src="/assets/images/meja2.jpg" class="img-fluid rounded-circle"
+                     style="width: 300px; height: 300px; object-fit: cover;" loading="lazy" alt="Tempat nyaman">
             </div>
             <div class="col-md-6" data-aos="fade-left" data-aos-duration="500">
-                <h4 style="font-family: 'Inter', sans-serif; font-size: 34px; color: #AA1D1D;">
-                    Menu yang beragam
+                <h4 style="font-family: 'Inter', sans-serif; font-size: 27px; color: #AA1D1D;">
+                    Tempat yang Bikin Nyaman
                 </h4>
-                <hr style="border: 1px solid orange; width: 400px;">
-                <p style="font-family: 'Inter', sans-serif; font-size: 22px; text-align: justify;">
-                    Untuk pengalaman berbeda, kami menyediakan kombinasi menu yang beragam.
-                    Meskipun ramen menjadi menu andalan di Tadaima Ramen and Coffee, kami juga
-                    menawarkan berbagai hidangan lainnya, seperti cemilan, dan nasi goreng lokal yang khas.
-                    Selain itu, pengunjung juga bisa menikmati minuman berupa jus segar dan kopi hangat.
+                <hr style="border: 2px solid orange; width: 400px;">
+                <p style="font-family: 'Inter', sans-serif; font-size: 18px; text-align: justify;">
+                    Dari interior kayu yang hangat, pencahayaan yang tidak terlalu terang, hingga pemilihan furnitur
+                    yang sederhana tapi fungsional. Semua dirancang untuk membuat pengunjung merasa tenang dan betah.
+                    Setiap sudut ruangan diatur agar tidak terasa sempit, memberikan suasana yang akrab namun tetap lega.
                 </p>
             </div>
         </div>

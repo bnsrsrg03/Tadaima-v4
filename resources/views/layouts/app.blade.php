@@ -32,8 +32,7 @@
             </button>
             <ul class="nav-links" id="nav-links">
                 <li><a href="{{ route('home') }}">Beranda</a></li>
-                <li><a href="{{ route('halaman.tentang') }}">Tentang Kami</a></li>
-                <li class="dropdown">
+                     <li class="dropdown">
                     <a href="#">Menu <i class="fa fa-caret-down"></i></a>
                     <ul class="dropdown-content">
                         <li><a href="{{ route('menu.makanan') }}">Makanan</a></li>
@@ -41,7 +40,9 @@
                         <li><a href="{{ route('menu.cemilan') }}">Cemilan</a></li>
                     </ul>
                 </li>
-                <li><a href="{{ route('ulasan.index') }}">Ulasan</a></li>
+                  <li><a href="{{ route('ulasan.index') }}">Ulasan</a></li>
+                <li><a href="{{ route('halaman.tentang') }}">Tentang Kami</a></li>
+                   <li><a href="{{ route('ulasan.index') }}"> Galeri</a></li>
                 <li class="nav-profile">
                     <a href="{{ url('/admin/login') }}">
                         <i class="fa-regular fa-user"></i>

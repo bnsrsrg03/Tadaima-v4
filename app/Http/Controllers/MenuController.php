@@ -31,6 +31,12 @@ class MenuController extends Controller
         return view('menu.cemilan', compact('menus'));
     }
     
-    
+   public function show(Menu $menu)
+{
+    // Load relasi description dan kategori
+    $menu->load('description', 'kategori');
+    return view('menus.show', compact('menu'));
+}
+ 
     
 }

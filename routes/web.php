@@ -18,6 +18,7 @@ Route::get('/menu/minuman', [MenuController::class, 'minuman'])->name('menu.minu
 Route::get('/menu/cemilan', [MenuController::class, 'cemilan'])->name('menu.cemilan');
 Route::get('/menu', [MenuController::class, 'index'])->name('menu.index');
 Route::get('/menu/{kategori}', [MenuController::class, 'showByKategori'])->name('menu.kategori');
+Route::get('/menus/{menu}', [MenuController::class, 'show'])->name('menus.show');
 
 use App\Http\Controllers\UlasanController;
 Route::get('/ulasan', [UlasanController::class, 'index'])->name('ulasan.index');

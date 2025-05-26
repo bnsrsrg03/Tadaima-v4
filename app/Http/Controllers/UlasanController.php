@@ -8,10 +8,11 @@ use Illuminate\Http\Request;
 class UlasanController extends Controller
 {
     public function index()
-    {
-        $ulasans = Ulasan::latest()->get();
-        return view('ulasan.index', compact('ulasans'));
-    }
+{
+    $ulasans = Ulasan::latest()->paginate(3); 
+    return view('ulasan.index', compact('ulasans'));
+}
+
 
     public function store(Request $request)
     {

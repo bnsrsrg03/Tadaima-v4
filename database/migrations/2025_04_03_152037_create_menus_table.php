@@ -13,7 +13,6 @@ return new class extends Migration {
             $table->string('name'); // Nama menu
             $table->decimal('price', 10, 2); // Harga menu
             $table->string('image')->nullable(); // Foto menu
-            $table->text('description')->nullable(); // Deskripsi menu (tambahan)
             $table->boolean('bestseller')->default(false); // Status best seller (default: false)
             $table->timestamps();
         });

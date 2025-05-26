@@ -14,11 +14,13 @@
                     @if ($menu->bestseller)
                         <img src="{{ asset('assets/images/bestseller.png') }}" alt="Best Seller" class="best-seller-badge">
                     @endif
+<a href="{{ route('menus.show', $menu->id) }}">
+    <img src="{{ asset('storage/' . $menu->image) }}" 
+         alt="{{ $menu->name }}" 
+         class="card-img-top" 
+         style="height: 300px; width: 100%; object-fit: cover;">
+</a>
 
-                    <img src="{{ asset('storage/app/public/' . $menu->image) }}" 
-                         alt="{{ $menu->name }}" 
-                         class="card-img-top" 
-                         style="height: 300px; width: 100%; object-fit: cover;">
 
                     <div class="card-body text-center d-flex flex-column justify-content-center" 
                          style="height: 152.06px;">
