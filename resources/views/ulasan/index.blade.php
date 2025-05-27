@@ -20,13 +20,14 @@
 
         <form action="{{ route('ulasan.store') }}" method="POST">
             @csrf
+            <p class="comment-label">Berikan Ulasan Anda</p>
             <textarea name="comment" id="comment" placeholder="Isi disini">{{ old('comment') }}</textarea>
             @error('comment')
                 <div class="alert-error">{{ $message }}</div>
             @enderror
 
-            <button type="button" onclick="showModal()">
-</button>
+          <button type="button" class="submit-btn" onclick="showModal()">Kirim</button>
+
 
         </form>
     </div>
@@ -50,24 +51,21 @@
 </div>
 
 <!-- Daftar Ulasan -->
-<div class="ulasan-list">
+<div id="ulasans" class="ulasan-list">
     @foreach($ulasans as $ulasan)
         <div class="ulasan-item">
-            <div class="avatar">
-                {{ strtoupper(substr($ulasan->user->name ?? $ulasan->nama ?? 'A', 0, 1)) }}
-            </div>
-            <div class="ulasan-content">
-                <strong>{{ $ulasan->user->name ?? $ulasan->nama ?? 'Anonim' }}</strong><br>
-                {{ $ulasan->comment }}
-            </div>
+       
+           <div class="ulasan-content">
+    {{ $ulasan->comment }}
+</div>
+
         </div>
     @endforeach
 
     <!-- Pagination -->
-    <div class="pagination-links" style="text-align:center; margin-top: 30px;">
-        {{ $ulasans->links() }}
-    </div>
-</div>
+<div class="pagination-links">
+  
+
 
 
 <script>
@@ -105,12 +103,18 @@
     transform: translate(-50%, -50%);
     color: white;
     font-family: Georgia;
-    font-size: 50px;
+    font-size: 45px;
     font-weight: bold;
     text-align: center;
     text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.8);
 }
 
+.comment-label {
+    font-size: 18px;
+    margin-bottom: 8px;
+    font-weight: bold;
+    color: #333;
+}
 
     .ulasan-wrapper {
     position: relative;
@@ -150,6 +154,27 @@
     z-index: 1;
     margin-left: 500px;
 }
+.submit-btn {
+    background-color: #0d9cd4;
+    padding: 6px 14px;
+    font-size: 12px;
+    font-weight: bold;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    float: right;
+    transition: opacity 0.2s ease;
+}
+
+.submit-btn:hover {
+    opacity: 0.9; /* efek halus saat hover tanpa mengubah ukuran atau warna */
+}
+
+.submit-btn:active {
+    transform: none; /* hilangkan efek klik membesar/kecil */
+}
+
 
 
 
@@ -165,7 +190,7 @@
 
     .form-section textarea {
         width: 100%;
-        height: 120px;
+        height: 200px;
         padding: 10px;
         font-size: 16px;
         border-radius: 8px;
@@ -175,7 +200,7 @@
 
     .form-section button {
         position: absolute;
-        bottom: 25px;
+        bottom: 45px;
         right: 25px;
         background: none;
         border: none;
@@ -183,9 +208,7 @@
         cursor: pointer;
     }
 
-    .form-section button::after {
-        content: "\27A4";
-    }
+   
 
 
 
@@ -199,8 +222,8 @@
 
 .desc-section p {
     font-family: 'Inter', sans-serif;
-    font-size: 24px;
-    line-height: 1.6;
+    font-size: 20px;
+    line-height: 1.7;
 }
 
     .ulasan-list {
@@ -217,24 +240,12 @@
         box-shadow: 0 2px 4px rgba(0,0,0,0.1);
     }
 
-    .avatar {
-        width: 40px;
-        height: 40px;
-        background-color: #000;
-        color: white;
-        border-radius: 50%;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        font-weight: bold;
-        font-size: 18px;
-        margin-right: 15px;
-    }
+
 
     .ulasan-content {
     background-color: #f1f1f1;
     border-radius: 10px;
-    padding: 50px 15px;
+      padding: 20px 15px;
     word-break: break-word;
     flex: 1;
     margin-top: 20px;
@@ -390,7 +401,7 @@
 
 .pagination-links nav li a, 
 .pagination-links nav li span {
-    padding: 10px 16px;
+    padding: 8px 12px;
     background-color: white;
     border: 1px solid #ddd;
     border-radius: 12px;
@@ -409,14 +420,16 @@
     color: white;
     transform: translateY(-2px);
 }
-
 .pagination-links nav li.active span {
-    background-color: #28b6ff;
+    background-color: #337ab7;
     color: white;
     font-weight: bold;
-    border: 1px solid #28b6ff;
-    box-shadow: 0 2px 8px rgba(40, 182, 255, 0.3);
+    border: 1px solid #2e6da4;
+    border-radius: 4px;
+    box-shadow: inset 0 -1px 0 rgba(0, 0, 0, 0.15);
 }
+
+
 
 .pagination-links nav li.disabled span {
     background-color: #f8f8f8;
@@ -424,6 +437,7 @@
     cursor: not-allowed;
     box-shadow: none;
     border: 1px solid #eee;
+    border-radius: 4px;
 }
 @media (max-width: 576px) {
     .pagination-links nav ul {
@@ -435,6 +449,10 @@
         padding: 8px 12px;
         font-size: 14px;
     }
+}
+.pagination-links svg {
+    width: 16px;
+    height: 16px;
 }
 
 

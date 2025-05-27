@@ -42,7 +42,7 @@
                 </li>
                   <li><a href="{{ route('ulasan.index') }}">Ulasan</a></li>
                 <li><a href="{{ route('halaman.tentang') }}">Tentang Kami</a></li>
-                   <li><a href="{{ route('ulasan.index') }}"> Galeri</a></li>
+                   <li><a href="{{ route('galeri') }}"> Galeri</a></li>
                 <li class="nav-profile">
                     <a href="{{ url('/admin/login') }}">
                         <i class="fa-regular fa-user"></i>

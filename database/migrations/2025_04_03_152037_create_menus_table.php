@@ -12,6 +12,7 @@ return new class extends Migration {
             $table->foreignId('kategori_id')->constrained('kategoris')->onDelete('cascade'); // Foreign key untuk kategori
             $table->string('name'); // Nama menu
             $table->decimal('price', 10, 2); // Harga menu
+              $table->text('description')->nullable();
             $table->string('image')->nullable(); // Foto menu
             $table->boolean('bestseller')->default(false); // Status best seller (default: false)
             $table->timestamps();

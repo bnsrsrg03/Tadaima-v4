@@ -9,21 +9,16 @@ class Menu extends Model
 {
     use HasFactory;
 
-    protected $fillable = [
+  protected $fillable = [
         'kategori_id',
         'name',
+        'description', // Deskripsi menu
         'price',
         'image',
         'bestseller',
     ];
-
-    public function kategori()
+   public function kategori()
     {
         return $this->belongsTo(Kategori::class);
-    }
-
-    public function description()
-    {
-        return $this->hasOne(Description::class);
     }
 }

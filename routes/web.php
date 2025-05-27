@@ -10,7 +10,8 @@ use App\Http\Controllers\TentangController;
 Route::get('/tentang', [TentangController::class, 'index'])->name('halaman.tentang');
 
 use App\Http\Controllers\GaleriController;
-Route::get('/galeri', [GaleriController::class, 'index']);
+
+Route::get('/galeri', [GaleriController::class, 'index'])->name('galeri');
 
 use App\Http\Controllers\MenuController;
 Route::get('/menu/makanan', [MenuController::class, 'makanan'])->name('menu.makanan');

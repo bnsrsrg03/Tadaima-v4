@@ -5,8 +5,6 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Kategori;
 use App\Models\Menu;
-use Illuminate\Pagination\Paginator;
-
 
 class MenuController extends Controller
 {
@@ -30,13 +28,14 @@ class MenuController extends Controller
         $menus = $kategori->menus()->get();
         return view('menu.cemilan', compact('menus'));
     }
-    
-   public function show(Menu $menu)
-{
-    // Load relasi description dan kategori
-    $menu->load('description', 'kategori');
-    return view('menus.show', compact('menu'));
-}
- 
-    
+
+    public function show(Menu $menu)
+    {
+        // Tidak perlu load() untuk kolom biasa
+        // $menu->description sudah langsung bisa diakses di view
+        // Relasi kategori boleh dimuat jika ingin ditampilkan di view
+        $menu->load('kategori'); 
+
+        return view('menus.show', compact('menu'));
+    }
 }
