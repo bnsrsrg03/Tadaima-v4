@@ -32,63 +32,6 @@
   </div>
 </section>
 
-
-
-<!-- karyawan -->
-<section class="tim-kami overflow-hidden">
-  <div class="container mx-auto">
-    <h2 class="text-center font-bold mb-10 text-black drop-shadow-lg">
-      Profil Karyawan
-    </h2>
-    <div class="overflow-hidden relative w-full">
-      <div class="flex animate-scroll gap-4 w-max">
-        @foreach ($karyawans as $karyawan)
-          <div class="flex flex-col items-center flex-shrink-0">
-            <div class="overflow-hidden">
-              <img src="{{ asset('storage/app/public/' . ($karyawan->image ?? 'images/default.jpg')) }}"
-                   alt="{{ $karyawan->name }}" class="img-karyawan">
-            </div>
-            <p class="mt-2 text-center text-black font-medium truncate w-full card-title">
-              {{ $karyawan->name }}
-            </p>
-            <p class="text-center text-gray-600 truncate w-full card-text">
-              {{ $karyawan->position }}
-            </p>
-          </div>
-        @endforeach
-
-        @foreach ($karyawans as $karyawan)
-          <div class="flex flex-col items-center flex-shrink-0">
-            <div class="overflow-hidden">
-              <img src="{{ asset('storage/app/public/' . ($karyawan->image ?? 'images/default.jpg')) }}"
-                   alt="{{ $karyawan->name }}" class="img-karyawan">
-            </div>
-            <p class="mt-2 text-center text-black font-medium truncate w-full card-title">
-              {{ $karyawan->name }}
-            </p>
-            <p class="text-center text-gray-600 truncate w-full card-text">
-              {{ $karyawan->position }}
-            </p>
-          </div>
-        @endforeach
-      </div>
-    </div>
-  </div>
-</section>
-
-<style>
-@keyframes scroll {
-  0% { transform: translateX(0); }
-  100% { transform: translateX(-50%); }
-}
-.animate-scroll {
-  animation: scroll 25s linear infinite;
-  display: flex;
-}
-</style>
-
-
-
 <!-- Jam Operasional -->
 @php
   use Carbon\Carbon;
@@ -158,6 +101,63 @@
     </p>
   </div>
 </section>
+
+<!-- karyawan -->
+<section class="tim-kami overflow-hidden">
+  <div class="container mx-auto">
+    <h2 class="text-center font-bold mb-10 text-black drop-shadow-lg">
+      Profil Karyawan
+    </h2>
+    <div class="overflow-hidden relative w-full">
+      <div class="flex animate-scroll gap-4 w-max">
+        @foreach ($karyawans as $karyawan)
+          <div class="flex flex-col items-center flex-shrink-0">
+            <div class="overflow-hidden">
+              <img src="{{ asset('storage/app/public/' . ($karyawan->image ?? 'images/default.jpg')) }}"
+                   alt="{{ $karyawan->name }}" class="img-karyawan">
+            </div>
+            <p class="mt-2 text-center text-black font-medium truncate w-full card-title">
+              {{ $karyawan->name }}
+            </p>
+            <p class="text-center text-gray-600 truncate w-full card-text">
+              {{ $karyawan->position }}
+            </p>
+          </div>
+        @endforeach
+
+        @foreach ($karyawans as $karyawan)
+          <div class="flex flex-col items-center flex-shrink-0">
+            <div class="overflow-hidden">
+              <img src="{{ asset('storage/app/public/' . ($karyawan->image ?? 'images/default.jpg')) }}"
+                   alt="{{ $karyawan->name }}" class="img-karyawan">
+            </div>
+            <p class="mt-2 text-center text-black font-medium truncate w-full card-title">
+              {{ $karyawan->name }}
+            </p>
+            <p class="text-center text-gray-600 truncate w-full card-text">
+              {{ $karyawan->position }}
+            </p>
+          </div>
+        @endforeach
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+@keyframes scroll {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+.animate-scroll {
+  animation: scroll 25s linear infinite;
+  display: flex;
+}
+</style>
+
+
+
+
 
 
 
