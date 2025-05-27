@@ -89,42 +89,6 @@
 
 
 
-
-<!-- Galeri -->
-<section class="galeri bg-white/60 backdrop-blur-sm shadow-lg rounded-xl text-black" 
-         data-aos="fade-left" data-aos-duration="1000">
-  <div class="container text-center">
-    <h2 class="text-3xl font-bold mb-5" style="font-size: 40px; font-weight: bold; font-family: 'Inter', sans-serif; text-shadow: 0 2px 6px rgba(0,0,0,0.6);">
-      Galeri
-    </h2>
-    <div class="swiper galeriSwiper position-relative">
-      <div class="swiper-wrapper">
-      @foreach ($galeris as $index => $galeri)
-  <div class="swiper-slide d-flex justify-content-center">
-    <div class="card border-0 shadow-lg rounded-4 overflow-hidden"
-         style="max-width: 1068px; width: 1068px; height: 600px;">
-      @if ($index === 0)
-        <video autoplay muted loop
-               style="width: 100%; height: 100%; object-fit: cover; transition: 0.5s;">
-          <source src="{{ asset('assets/images/vidio1.mp4') }}" type="video/mp4">
-          Browser Anda tidak mendukung tag video.
-        </video>
-      @else
-        <img src="{{ asset('storage/app/public/' . $galeri->image) }}" alt="Galeri"
-             class="img-fluid"
-             style="width: 100%; height: 100%; object-fit: cover; transition: 0.5s;">
-      @endif
-    </div>
-  </div>
-@endforeach
-      </div>
-      <div class="swiper-button-prev custom-nav" style="left: 10px; z-index: 10;"></div>
-      <div class="swiper-button-next custom-nav" style="right: 10px; z-index: 10;"></div>
-    </div>
-  </div>
-</section>
-
-
 <!-- Jam Operasional -->
 @php
   use Carbon\Carbon;

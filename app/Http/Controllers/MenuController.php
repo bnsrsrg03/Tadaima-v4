@@ -38,4 +38,11 @@ class MenuController extends Controller
 
         return view('menus.show', compact('menu'));
     }
+
+    public function bestseller()
+{
+    $menus = Menu::where('bestseller', true)->get();
+    return view('menu.bestseller', compact('menus'));
+}
+
 }

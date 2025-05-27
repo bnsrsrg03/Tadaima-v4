@@ -14,10 +14,13 @@
     <link href="https://fonts.googleapis.com/css2?family=ABeeZee&display=swap" rel="stylesheet">
 
 
+
     {{-- Livewire Styles --}}
     @livewireStyles
     @stack('styles')
 </head>
+<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+
 <body>
 <header class="navbar">
     <div class="navbar-container">

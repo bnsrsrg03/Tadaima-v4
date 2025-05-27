@@ -31,6 +31,14 @@
     </div>
 </section>
 
+
+@php
+    $menus = \App\Models\Menu::where('bestseller', true)->get();
+@endphp
+
+@include('components.menu-terlaris', ['menus' => $menus])
+
+
 @include('components.alasan')
 
 {{-- Denah  --}}
