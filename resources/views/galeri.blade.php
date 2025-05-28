@@ -16,7 +16,7 @@
             Browser Anda tidak mendukung tag video.
           </video>
         @else
-          <img src="{{ asset('storage/' . $galeri->image) }}" alt="Galeri">
+          <img src="{{ asset('storage/app/public/'. $galeri->image) }}" alt="Galeri">
         @endif
       </div>
     @endforeach
@@ -34,7 +34,7 @@
 
   .gallery-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
     gap: 15px;
   }
 
