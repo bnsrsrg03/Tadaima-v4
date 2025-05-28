@@ -6,7 +6,7 @@
         <!-- Gambar sebagai card -->
         <div class="col-md-6">
             <div class="card shadow-sm border-0">
-                <img src="{{ asset('storage/' . $menu->image) }}" alt="{{ $menu->name }}" class="card-img-top" style="object-fit: cover; height: 100%; max-height: 400px; border-radius: 15px;">
+                    <img src="{{ asset('storage/app/public/' . $menu->image) }}" alt="{{ $menu->name }}" class="card-img-top" style="object-fit: cover; height: 100%; max-height: 400px; border-radius: 15px;">
             </div>
         </div>
 

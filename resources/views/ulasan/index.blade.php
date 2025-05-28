@@ -58,13 +58,13 @@
            <div class="ulasan-content">
     {{ $ulasan->comment }}
 </div>
-
         </div>
     @endforeach
 
     <!-- Pagination -->
 <div class="pagination-links">
-  
+    {{ $ulasans->links() }}
+</div>
 
 
 
@@ -145,7 +145,7 @@
 
 .desc-section {
     width: 785px;
-    height: 537px;
+    height: 480px;
     background-color: #A85454;
     color: white;
     padding: 50px 30px 30px 150px; 
@@ -156,16 +156,19 @@
 }
 .submit-btn {
     background-color: #0d9cd4;
-    padding: 6px 14px;
-    font-size: 12px;
+    color:black;
+    padding: 6px 12px;       /* Ukuran lebih kecil */
+  font-size: 16px !important;
+        /* Font lebih kecil */
     font-weight: bold;
     border: none;
-    border-radius: 8px;
+    border-radius: 6px;      /* Radius juga diperkecil */
     cursor: pointer;
-    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1); /* Bayangan lebih ringan */
     float: right;
     transition: opacity 0.2s ease;
 }
+
 
 .submit-btn:hover {
     opacity: 0.9; /* efek halus saat hover tanpa mengubah ukuran atau warna */
@@ -253,15 +256,15 @@
 
 
     .alert-success {
-        color: green;
-        font-weight: bold;
-        margin: 15px auto;
-        max-width: 800px;
-    }
+ color: green;
+        font-size: 18px;
+        margin-top: 5px;
+}
+
 
     .alert-error {
         color: red;
-        font-size: 14px;
+        font-size: 18px;
         margin-top: 5px;
     }
 
@@ -385,6 +388,9 @@
     display: flex;
     justify-content: center;
     margin-top: 30px;
+}
+.pagination-links nav > div:first-child {
+    display: none !important;
 }
 
 .pagination-links nav ul {

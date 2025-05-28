@@ -9,7 +9,7 @@ class UlasanController extends Controller
 {
     public function index()
 {
-    $ulasans = Ulasan::latest()->paginate(3); 
+    $ulasans = Ulasan::latest()->paginate(5); 
     return view('ulasan.index', compact('ulasans'));
 }
 
