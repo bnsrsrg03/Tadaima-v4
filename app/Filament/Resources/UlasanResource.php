@@ -14,6 +14,7 @@ use Filament\Forms\Components\Textarea;
 use Filament\Tables\Columns\TextColumn;
 use Filament\Forms\Components\TextInput;
 use Illuminate\Database\Eloquent\Builder;
+use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Notification;
 use App\Filament\Resources\UlasanResource\Pages;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
@@ -38,6 +39,8 @@ class UlasanResource extends Resource
                     ->dehydrateStateUsing(fn ($state) => BadWordFilter::filter($state))
                     ->afterStateUpdated(function ($state, Set $set) {
                         if ($state && BadWordFilter::hasBadWords($state)) {
+                            Log::warning('Attempted inappropriate comment: ' . $state);
+
                             Notification::make()
                                 ->title('Peringatan!')
                                 ->body('Komentar mengandung kata-kata yang tidak sopan. Komentar akan difilter secara otomatis.')
