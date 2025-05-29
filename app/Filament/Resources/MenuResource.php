@@ -49,7 +49,6 @@ class MenuResource extends Resource
                         FileUpload::make('image')
                             ->image()
                             ->directory('menu-images')
-                            ->maxSize(1024)
                             ->required()
                             ->label('Gambar'),
 

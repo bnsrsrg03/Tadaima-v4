@@ -48,7 +48,6 @@ class KaryawanResource extends Resource
                     ->image() // ini penting agar hanya gambar
                     ->directory('menu-images') // folder penyimpanan di storage/app/public/menu-images
                     ->disk('public')
-                    ->maxSize(1024)
                     ->required()
                     ->label('Gambar'),
 
