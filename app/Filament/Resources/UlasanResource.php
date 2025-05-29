@@ -7,11 +7,14 @@ use Filament\Tables;
 use App\Models\Ulasan;
 use Filament\Forms\Form;
 use Filament\Tables\Table;
+use Filament\Forms\Set;
+use App\Services\BadWordFilter;
 use Filament\Resources\Resource;
 use Filament\Forms\Components\Textarea;
 use Filament\Tables\Columns\TextColumn;
 use Filament\Forms\Components\TextInput;
 use Illuminate\Database\Eloquent\Builder;
+use Illuminate\Support\Facades\Notification;
 use App\Filament\Resources\UlasanResource\Pages;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
 use App\Filament\Resources\UlasanResource\RelationManagers;
@@ -28,7 +31,27 @@ class UlasanResource extends Resource
     {
         return $form
             ->schema([
-                Textarea::make('comment'),
+                Textarea::make('comment')
+                    ->required()
+                    ->maxLength(1000)
+                    ->live(onBlur: true)
+                    ->dehydrateStateUsing(fn ($state) => BadWordFilter::filter($state))
+                    ->afterStateUpdated(function ($state, Set $set) {
+                        if ($state && BadWordFilter::hasBadWords($state)) {
+                            Notification::make()
+                                ->title('Peringatan!')
+                                ->body('Komentar mengandung kata-kata yang tidak sopan. Komentar akan difilter secara otomatis.')
+                                ->danger()
+                                ->persistent()
+                                ->send();
+                            
+                            // Filter dan update nilai textarea
+                            $filteredText = BadWordFilter::filter($state);
+                            $set('comment', $filteredText);
+                        }
+                    })
+                    ->helperText('Komentar yang mengandung kata-kata tidak sopan akan difilter secara otomatis.')
+                    ->columnSpanFull(),
             ]);
     }
 
