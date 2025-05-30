@@ -2,6 +2,7 @@ body {
     margin: 0;
     padding: 0;
     display: flex;
+    margin-top: 30px;
     flex-direction: column;
 }
 html, body {
@@ -15,19 +16,25 @@ html, body {
     margin: 0 auto; 
     padding: 20px;
 }
-
-
-header {
+header.navbar {
     background-color: #AA1D1D;
     padding: 10px 30px;
     display: flex;
     align-items: center;
     justify-content: space-between;
     height: 80px;
+    position: fixed; 
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+}
+main {
+    margin-top: 50px; /* beri jarak agar tidak tertutup header */
 }
 
 .navbar {
-    position: relative;
+  
     z-index: 999;
 }
 
@@ -59,7 +66,7 @@ header {
     display: flex;
     align-items: center;
     justify-content: flex-end;
-    gap: 20px;
+    gap: 10px;
     flex: 1;
 }
 
@@ -84,7 +91,7 @@ header {
 }
 
 .nav-links li a:hover,
-.nav-profile a:hover {
+ a:hover {
     background-color: #AA1D1D;
     border-radius: 5px;
     border-bottom: 2px solid #fff;
@@ -121,13 +128,6 @@ header {
 
 .dropdown:hover .dropdown-content {
     display: block;
-}
-
-.nav-profile a {
-    color: white;
-    font-size: 20px;
-    text-decoration: none;
-    padding: 8px 12px;
 }
 
 .menu-toggle {
@@ -619,157 +619,8 @@ header {
 }
 
   
-.galeri {
-  padding-top: 80px;    
-  padding-bottom: 80px;  
-}
-
-/* === Footer === */
-footer {
-    background-color: #AA1D1D;
-    color: white;
-    font-family: Arial, sans-serif;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    min-height: 300px; 
-}
-
-.footer-container {
-    display: flex;
-    justify-content: space-between;
-    align-items: flex-start;
-    width: 100%;
-    padding: 40px ;
-    box-sizing: border-box;
-}
-
-.footer-left {
-  display: flex;
-  justify-content: flex-start;
-  padding-left: 80px;
-}
-
-.footer-right {
-    flex: 1;
-    display: flex;
-    justify-content: space-between;
-    gap: 30px;
-   padding: 40px 30px;
-}
-
-.footer-logo img {
-    width: 198px;
-    height: 185px;
-    object-fit: cover;
-    border-radius: 50%;
-}
-
-.footer-info,
-.footer-contact,
-.footer-sosmed {
-    max-width: 300px;
-    margin-top: 40px; 
-}
-
-.footer-info h4,
-.footer-contact h4,
-.footer-sosmed h4 {
-    margin-bottom: 5px;
-    font-size: 18px;
-}
-
-.footer-info p,
-.footer-contact p,
-.footer-sosmed p {
-    margin: 5px 0;
-    font-size: 14px;
-    line-height: 1.5;
-    word-break: break-word;
-    text-align: center;
-}
-
-.footer-contact a,
-.footer-sosmed a {
-    color: white;
-    text-decoration: underline;
-}
 
 
-.footer-bottom {
-  text-align: center;
-  font-size: 13px;
-  margin-top: 40px;
-  padding: 10px 0;
-  border-top: 1px solid #ffffff;
-}
-.footer-contact p a,
-.footer-sosmed p a {
-    word-break: break-word;
-    overflow-wrap: break-word;
-    display: inline-block;
-    max-width: 100%;
-}
-
-/* Responsive */
-
-@media (max-width: 768px) {
-    .footer-container {
-        padding: 20px;
-    }
-
-    .footer-left {
-        justify-content: center;
-        padding-left: 0;
-        margin-bottom: 20px;
-    }
-
-    .footer-logo img {
-        width: 150px;
-        height: 150px;
-    }
-
-    .footer-right {
-        flex-direction: column;
-        align-items: center;
-        padding: 0;
-        gap: 20px;
-    }
-
-    .footer-info,
-    .footer-contact,
-    .footer-sosmed {
-        margin-top: 20px;
-        text-align: center;
-        max-width: 100%;
-    }
-
-    .footer-bottom {
-        font-size: 12px;
-        padding: 15px 10px;
-        margin-top: 30px;
-    }
-}
-
-
-i, svg {
-  font-size: 1rem;
-  width: auto;
-  height: auto;
-}
-
-.navbar i, .footer-sosmed i {
-  font-size: 20px;
-}
-
-.nav-profile i {
-  font-size: 22px;
-}
-
-.pagination i, .pagination svg {
-  width: 16px;
-  height: 16px;
-}
 
 /*Whattsap*/
 .whatsapp-button {
@@ -796,4 +647,170 @@ i, svg {
   font-size: 25px; 
   margin-right: 2px; 
   vertical-align: middle; 
+}
+
+
+/* === Footer === */
+footer {
+    background-color: #AA1D1D;
+    color: white;
+    font-family: Arial, sans-serif;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 262px;
+    position: relative;
+    overflow: hidden;
+    box-sizing: border-box;
+    padding: 50px 40px;
+}
+
+.footer-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    flex: 1;
+    gap: 20px;
+}
+
+.footer-left {
+    display: flex;
+    align-items: center;
+}
+
+.footer-logo img {
+    width: 120px;
+    height: 120px;
+    object-fit: cover;
+    border-radius: 50%;
+}
+
+.footer-right {
+    flex: 1;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 20px;
+}
+
+.footer-info,
+.footer-contact,
+.footer-sosmed {
+    max-width: 250px;
+    font-size: 15px;
+    line-height: 1.2;
+}
+
+.footer-info h4,
+.footer-contact h4,
+.footer-sosmed h4 {
+    margin-bottom: 4px;
+    font-size: 16px;
+}
+
+.footer-info p,
+.footer-contact p,
+.footer-sosmed p {
+    margin: 4px 0;
+    font-size: 15px;
+    text-align: left;
+}
+
+.footer-contact a,
+.footer-sosmed a {
+    color: white;
+    text-decoration: underline;
+    word-break: break-word;
+}
+
+.footer-bottom {
+    text-align: center;
+    font-size: 12px;
+    padding-top: 8px;
+    margin-top: 40px;
+    border-top: 1px solid #ffffff;
+    width: 100vw; /* agar garis selebar viewport */
+    position: relative;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+
+/* Tombol login */
+.footer-login {
+    position: absolute; /* tetap absolute terhadap footer */
+    bottom: 65px; /* geser ke atas agar berada di atas garis */
+    right: 5px; /* jarak dari kiri */
+    width: 40px;
+    height: 40px;
+    background-color: rgba(255, 255, 255, 0.05);
+    border: 2px solid rgba(255, 255, 255, 0.4);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    backdrop-filter: blur(5px);
+    transition: all 0.3s ease;
+    z-index: 2; /* pastikan tetap di atas elemen lain */
+}
+
+
+.footer-login a {
+    color: rgba(255, 255, 255, 0.7);
+    font-size: 16px;
+    text-decoration: none;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.footer-login:hover {
+    background-color: rgba(255, 255, 255, 0.15);
+    border-color: rgba(255, 255, 255, 0.6);
+}
+
+.footer-login a:hover {
+    color: white;
+}
+
+/* Responsif */
+@media (max-width: 768px) {
+    footer {
+        height: auto;
+        padding: 20px;
+    }
+
+    .footer-container {
+        flex-direction: column;
+        align-items: center;
+        gap: 5px;
+    }
+
+    .footer-left {
+        justify-content: center;
+    }
+
+    .footer-logo img {
+        width: 100px;
+        height: 100px;
+    }
+
+    .footer-right {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+
+    .footer-info,
+    .footer-contact,
+    .footer-sosmed {
+        max-width: 100%;
+    }
+
+    .footer-bottom {
+        font-size: 11px;
+        margin-top: 10px;
+    }
 }
