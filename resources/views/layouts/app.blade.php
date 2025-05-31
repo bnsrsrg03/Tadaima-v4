@@ -292,9 +292,7 @@ header.navbar {
     width: 100%;
     z-index: 1000;
 }
-main {
-    margin-top: 50px; /* beri jarak agar tidak tertutup header */
-}
+
 
 .navbar {
   
