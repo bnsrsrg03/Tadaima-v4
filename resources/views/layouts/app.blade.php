@@ -109,6 +109,25 @@
         });
     });
 </script>
+<script>
+    let lastScrollTop = 0;
+    const navbar = document.querySelector('.navbar');
+
+    window.addEventListener('scroll', function () {
+        const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+
+        if (scrollTop > lastScrollTop) {
+            // Scroll ke bawah
+            navbar.classList.add('navbar-hidden');
+        } else {
+            // Scroll ke atas
+            navbar.classList.remove('navbar-hidden');
+        }
+
+        lastScrollTop = scrollTop <= 0 ? 0 : scrollTop; // Untuk Safari
+    });
+</script>
+
 
 @livewireScripts
 @stack('scripts')
@@ -116,6 +135,164 @@
 </body>
 </html>
 <style>
+
+header.navbar {
+    background-color: #AA1D1D;
+    padding: 10px 30px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 80px;
+    position: fixed; 
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+}
+
+
+.navbar {
+  
+    z-index: 999;
+}
+
+.navbar-container {
+    display: flex;
+    align-items: center;
+    width: 100%;
+}
+
+.navbar-left {
+    display: flex;
+    align-items: center;
+    gap: 30px;
+    margin-right: auto;
+}
+.navbar-hidden {
+    transform: translateY(-100%);
+    transition: transform 0.3s ease;
+}
+
+.logo {
+    padding-left: 30px; 
+}
+
+.logo img {
+    height: 56px;
+    width: 56px;
+    object-fit: cover;
+    border-radius: 50%;
+}
+
+.navbar-right {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 10px;
+    flex: 1;
+}
+
+
+.nav-links {
+    display: flex;
+    align-items: center;
+    list-style: none;
+    gap: 35px; 
+    margin: 0;
+    padding: 0;
+}
+
+.nav-links li a {
+    color: white;
+    text-decoration: none;
+    font-weight: 400; 
+    font-size: 18px;
+    padding: 8px 12px;
+    transition: all 0.3s ease;
+    font-family: 'Inter', sans-serif;
+}
+
+.nav-links li a:hover,
+ a:hover {
+    background-color: #AA1D1D;
+    border-radius: 5px;
+    border-bottom: 2px solid #fff;
+    color: #FFD700;
+}
+
+.dropdown {
+    position: relative;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #AA1D1D;
+    min-width: 150px;
+    z-index: 1000;
+    top: 100%;
+    left: 0;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+    list-style: none; 
+    padding: 0;
+    margin: 0;
+}
+
+
+.dropdown-content li a {
+    display: block;
+    padding: 10px;
+    color: white;
+    font-family: 'Inter', sans-serif;
+    font-weight: 400; 
+    font-size: 18px;
+}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+.menu-toggle {
+    display: none;
+    background: none;
+    border: none;
+    font-size: 24px;
+    cursor: pointer;
+    color: #fff;
+    margin-right: 20px; 
+}
+
+
+/* === Responsive === */
+@media (max-width: 768px) {
+    .menu-toggle {
+        display: block;
+    }
+
+    .nav-links {
+        display: none;
+        flex-direction: column;
+        background-color: #AA1D1D; /* FIXED: tetap merah saat dikecilkan */
+        width: 100%;
+        position: absolute;
+        top: 70px;
+        left: 0;
+        z-index: 99;
+        padding: 20px;
+    }
+
+    .nav-links li a {
+        color: white;
+    }
+
+    .nav-links.active {
+        display: flex;
+    }
+}
+
+
+
+
     footer {
     background-color: #AA1D1D;
     color: white;
@@ -277,155 +454,6 @@
     .footer-bottom {
         font-size: 11px;
         margin-top: 10px;
-    }
-}
-header.navbar {
-    background-color: #AA1D1D;
-    padding: 10px 30px;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    height: 80px;
-    position: fixed; 
-    top: 0;
-    left: 0;
-    width: 100%;
-    z-index: 1000;
-}
-
-
-.navbar {
-  
-    z-index: 999;
-}
-
-.navbar-container {
-    display: flex;
-    align-items: center;
-    width: 100%;
-}
-
-.navbar-left {
-    display: flex;
-    align-items: center;
-    gap: 30px;
-    margin-right: auto;
-}
-
-.logo {
-    padding-left: 30px; 
-}
-
-.logo img {
-    height: 56px;
-    width: 56px;
-    object-fit: cover;
-    border-radius: 50%;
-}
-
-.navbar-right {
-    display: flex;
-    align-items: center;
-    justify-content: flex-end;
-    gap: 10px;
-    flex: 1;
-}
-
-
-.nav-links {
-    display: flex;
-    align-items: center;
-    list-style: none;
-    gap: 35px; 
-    margin: 0;
-    padding: 0;
-}
-
-.nav-links li a {
-    color: white;
-    text-decoration: none;
-    font-weight: 400; 
-    font-size: 18px;
-    padding: 8px 12px;
-    transition: all 0.3s ease;
-    font-family: 'Inter', sans-serif;
-}
-
-.nav-links li a:hover,
- a:hover {
-    background-color: #AA1D1D;
-    border-radius: 5px;
-    border-bottom: 2px solid #fff;
-    color: #FFD700;
-}
-
-.dropdown {
-    position: relative;
-}
-
-.dropdown-content {
-    display: none;
-    position: absolute;
-    background-color: #AA1D1D;
-    min-width: 150px;
-    z-index: 1000;
-    top: 100%;
-    left: 0;
-    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
-    list-style: none; 
-    padding: 0;
-    margin: 0;
-}
-
-
-.dropdown-content li a {
-    display: block;
-    padding: 10px;
-    color: white;
-    font-family: 'Inter', sans-serif;
-    font-weight: 400; 
-    font-size: 18px;
-}
-
-.dropdown:hover .dropdown-content {
-    display: block;
-}
-
-.menu-toggle {
-    display: none;
-    background: none;
-    border: none;
-    font-size: 24px;
-    cursor: pointer;
-    color: #fff;
-    margin-right: 20px; 
-}
-
-
-/* === Responsive === */
-@media (max-width: 768px) {
-    .menu-toggle {
-        display: block;
-    }
-
-    .nav-links {
-        display: none;
-        flex-direction: column;
-        background-color: #AA1D1D; /* FIXED: tetap merah saat dikecilkan */
-        width: 100%;
-        position: absolute;
-        top: 70px;
-        left: 0;
-        z-index: 99;
-        padding: 20px;
-    }
-
-    .nav-links li a {
-        color: white;
-    }
-
-    .nav-links.active {
-        display: flex;
     }
 }
 </style>

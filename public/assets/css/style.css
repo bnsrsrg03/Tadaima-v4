@@ -9,7 +9,9 @@ html, body {
     max-width: 100%;
     overflow-x: hidden;
   }
-  
+main {
+    margin-top: 70px; 
+}  
 
 .container {
     width: 1440px;
@@ -22,6 +24,7 @@ html, body {
     position: relative;
     text-align: center;
     color: white;
+    margin-top: 20px; 
 }
 
 .hero img {
@@ -31,6 +34,7 @@ html, body {
     max-height: 95vh;
     display: block;
     margin: 0 auto;
+     margin-top: -80px;
 }
 
 .hero h1 {

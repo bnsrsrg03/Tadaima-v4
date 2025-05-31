@@ -45,7 +45,7 @@
 <div class="position-relative text-white" data-aos="fade-up" data-aos-duration="1000">
 
     <div class="position-relative"
-         style="height: 710px; background-image: url('{{ asset('assets/images/sejarah.JPG') }}'); background-size: cover; background-position: center;">
+         style="height: 600px; background-image: url('{{ asset('assets/images/sejarah.JPG') }}'); background-size: cover; background-position: center;">
 
         <div class="position-absolute top-0 start-0 w-100 h-100" style="background-color: rgba(0,0,0,0.8);"></div>
 
