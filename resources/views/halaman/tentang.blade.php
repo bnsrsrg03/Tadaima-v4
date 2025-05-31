@@ -163,7 +163,7 @@
 
 <!-- Peta Lokasi -->
 <section class="lokasi" data-aos="fade-up">
-  <div class="overflow-hidden rounded-xl" style="height: 600px;">
+  <div class="overflow-hidden rounded-xl" style="height: 50 0px;">
     <iframe 
       src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15943.982830402778!2d99.0586125!3d2.3333355!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x302e055e68f70a19%3A0x2fd966f88a685ae!2sTadaima%20Ramen%20and%20Coffee!5e0!3m2!1sid!2sid!4v1715765589627!5m2!1sid!2sid" 
       width="100%" 
