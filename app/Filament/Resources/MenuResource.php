@@ -59,7 +59,6 @@ class MenuResource extends Resource
 
                         Checkbox::make('bestseller')
                             ->label('Apakah Bestseller?')
-                            ->sortable()
                             ->default(false),
                     ])
                     ->columns(2),
