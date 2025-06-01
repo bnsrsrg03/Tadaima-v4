@@ -91,6 +91,7 @@ class MenuResource extends Resource
 
                 Tables\Columns\IconColumn::make('bestseller')
                     ->label('Bestseller')
+                    ->sortable()
                     ->boolean(),
             ])
             ->filters([
