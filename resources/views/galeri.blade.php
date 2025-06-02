@@ -10,7 +10,7 @@
   <div class="gallery-grid">
     @foreach ($galeris as $galeri)
       <div class="gallery-item">
-        <img src="{{ asset('storage/app/public/'. $galeri->image) }}" alt="Galeri">
+        <img src="{{ asset('storage/'. $galeri->image) }}" alt="Galeri">
       </div>
     @endforeach
   </div>
