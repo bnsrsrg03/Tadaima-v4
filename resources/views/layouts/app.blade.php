@@ -165,7 +165,7 @@ header.navbar {
 .navbar-left {
     display: flex;
     align-items: center;
-    gap: 30px;
+    gap: 20px;
     margin-right: auto;
 }
 .navbar-hidden {
@@ -174,7 +174,8 @@ header.navbar {
 }
 
 .logo {
-    padding-left: 30px; 
+    padding-left: 10px; 
+    
 }
 
 .logo img {

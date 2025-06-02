@@ -1,30 +1,3 @@
-<!DOCTYPE html>
-
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Tadaima Section</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-
-<!-- Preconnect untuk mempercepat CDN -->
-<link rel="preconnect" href="https://cdn.jsdelivr.net">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-
-<!-- AOS CSS -->
-<link href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" rel="stylesheet">
-
-<!-- Inter font -->
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet">
-
-<!-- Bootstrap CSS -->
-<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
-
-
-</head>
-<body>
-
 <div class="container-fluid py-5 bg-light shadow-sm">
     <div class="row justify-content-center">
         <div class="col-12 col-lg-10">
@@ -116,3 +89,57 @@
 
 </body>
 </html>
+
+<style>
+img.rounded-circle {
+    max-width: 100%;
+    height: auto;
+}
+
+/* Responsif untuk layar kecil */
+@media (max-width: 767.98px) {
+ h2 {
+    font-size: 25px !important;
+    padding: 0 15px;
+}
+
+h4 {
+    font-size: 20px !important;
+    text-align: center;
+}
+
+
+    p {
+        font-size: 18px !important;
+        text-align: justify;
+        padding: 0 15px;
+    }
+
+    .row.align-items-center {
+        flex-direction: column !important;
+        text-align: center;
+    }
+
+    .col-md-6 {
+        padding-bottom: 20px;
+    }
+
+    hr {
+        margin-left: auto;
+        margin-right: auto;
+        width: 80% !important;
+    }
+}
+
+/* Responsif ekstra untuk layar sangat kecil */
+@media (max-width: 575.98px) {
+    img.rounded-circle {
+        width: 200px !important;
+        height: 200px !important;
+    }
+
+    hr {
+        width: 60% !important;
+    }
+}
+</style>

@@ -460,6 +460,10 @@
     width: 16px;
     height: 16px;
 }
+.pagination-links nav > div:first-of-type {
+    display: none !important;
+}
+
 
 
 </style>

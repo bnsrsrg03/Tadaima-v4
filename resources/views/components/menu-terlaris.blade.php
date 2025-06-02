@@ -98,6 +98,68 @@
 .right-arrow {
     right: -20px;
 }
+
+@media (max-width: 768px) {
+    .menu-terlaris-section h2 {
+        font-size: 2rem;
+    }
+
+    .menu-terlaris-section p {
+        font-size: 1rem;
+        padding: 0 15px;
+    }
+
+    .custom-arrow {
+        width: 40px;
+        height: 40px;
+        font-size: 1.5rem;
+    }
+
+    .left-arrow {
+        left: 0;
+    }
+
+    .right-arrow {
+        right: 0;
+    }
+
+    #menuScroll {
+        gap: 1rem !important;
+    }
+
+    #menuScroll .card {
+        width: 250px !important;
+    }
+
+    img.card-img-top {
+        height: 180px !important;
+    }
+}
+
+@media (max-width: 480px) {
+    .menu-terlaris-section h2 {
+        font-size: 1.6rem;
+    }
+
+    .menu-terlaris-section p {
+        font-size: 0.95rem;
+    }
+
+    .custom-arrow {
+        width: 35px;
+        height: 35px;
+        font-size: 1.3rem;
+    }
+
+    #menuScroll .card {
+        width: 220px !important;
+    }
+
+    img.card-img-top {
+        height: 160px !important;
+    }
+}
+
 </style>
 
 
