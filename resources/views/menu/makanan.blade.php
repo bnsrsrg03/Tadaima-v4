@@ -6,27 +6,25 @@
 
     <div class="row justify-content-center">
         @foreach ($menus as $menu)
-        <div class="col-lg-3 col-md-4 col-sm-6 col-12 mb-4" data-aos="fade-up">
-    <div class="card shadow-lg position-relative card-hover" 
-         style="width: 100%; height: 400px; border-radius: 20px; overflow: hidden;">
-
+            <div class="col-lg-3 col-md-6 col-sm-12 mb-4" data-aos="fade-up">
+                <div class="card shadow-lg position-relative card-hover h-100" 
+                     style="border-radius: 20px; overflow: hidden;">
                      
                     {{-- Kalau bestseller, tampilkan label best seller --}}
                     @if ($menu->bestseller)
                         <img src="{{ asset('assets/images/bestseller.png') }}" alt="Best Seller" class="best-seller-badge">
                     @endif
-<a href="{{ route('menus.show', $menu->id) }}">
-    <img src="{{ asset('storage/' . $menu->image) }}" 
-         alt="{{ $menu->name }}" 
-         class="card-img-top" 
-         style="height: 300px; width: 100%; object-fit: cover;">
-</a>
 
+                    <a href="{{ route('menus.show', $menu->id) }}">
+                        <img src="{{ asset('storage/' . $menu->image) }}" 
+                             alt="{{ $menu->name }}" 
+                             class="card-img-top img-fluid"
+                             style="object-fit: cover; height: 200px;">
+                    </a>
 
-                    <div class="card-body text-center d-flex flex-column justify-content-center" 
-                         style="height: 152.06px;">
-                        <h4 class="card-title mb-3" style="font-weight: 700;">{{ $menu->name }}</h4>
-                        <p class="card-text text-muted mb-4" style="font-size: 1.3rem;">
+                    <div class="card-body text-center d-flex flex-column justify-content-center px-3">
+                        <h4 class="card-title mb-2" style="font-weight: 700;">{{ $menu->name }}</h4>
+                        <p class="card-text text-muted mb-3" style="font-size: 1.1rem;">
                             Rp{{ number_format($menu->price, 0, ',', '.') }}
                         </p>
 
@@ -39,8 +37,8 @@
 
                         <a href="https://wa.me/{{ $nomor }}?text={{ $pesan }}"
                            target="_blank"
-                           class="btn btn-whatsapp"
-                           style="background-color: #800000; color: white; font-weight: 600; border-radius: 8px; padding: 10px 20px; display: flex; justify-content: center; align-items: center; width: 100%; margin-top: auto;">
+                           class="btn btn-whatsapp mt-auto"
+                           style="background-color: #800000; color: white; font-weight: 600; border-radius: 8px; padding: 10px 20px;">
                            <i class="fab fa-whatsapp me-2"></i> Pesan Sekarang
                         </a>
                     </div>
@@ -59,7 +57,21 @@
 .card-hover:hover {
     transform: scale(1.05);
 }
+
+@media (max-width: 768px) {
+    .card-title {
+        font-size: 1rem;
+    }
+    .card-text {
+        font-size: 0.9rem;
+    }
+    .card-img-top {
+        height: 160px !important;
+    }
+}
 </style>
+
+
 
 
 @include('components.whatsapp-button')

@@ -15,7 +15,8 @@
             <img src="{{ asset('assets/images/bestseller.png') }}" alt="Best Seller" class="best-seller-badge">
         @endif
 
-        <img src="{{ asset('storage/' . $menu->image) }}" 
+      <a href="{{ route('menus.show', $menu->id) }}">
+    <img src="{{ asset('storage/' . $menu->image) }}" 
              alt="{{ $menu->name }}" 
              class="card-img-top" 
              style="height: 300px; width: 100%; object-fit: cover;">

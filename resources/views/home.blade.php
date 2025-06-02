@@ -9,7 +9,7 @@
     <section class="hero text-center relative">
         <img src="{{ asset('assets/images/2.jpg') }}" alt="Tadaima Ramen and Coffee" class="w-full h-96 object-cover">
         <div class="absolute top-1/3 left-1/2 transform -translate-x-1/2 text-white">
-        <h1 class="text-[110px] font-bold brand-title">TADAIMA</h1>
+     <h1 class="text-[48px] md:text-[64px] lg:text-[80px] font-bold brand-title">TADAIMA</h1>
             <p class="text-xl">Ramen and Coffee</p>
         </div>
     </section>
@@ -46,14 +46,19 @@
 <div class="position-relative text-white" data-aos="fade-up" data-aos-duration="1000">
 
     <div class="position-relative"
-         style="height: 600px; background-image: url('{{ asset('assets/images/sejarah.JPG') }}'); background-size: cover; background-position: center;">
+         style="height: 600px; background-image: url('{{ asset('assets/images/denah.jpg') }}'); background-size: cover; background-position: center;">
 
-        <div class="position-absolute top-0 start-0 w-100 h-100" style="background-color: rgba(0,0,0,0.8);"></div>
+        <div class="position-absolute top-0 start-0 w-100 h-100" style="background-color: rgba(0,0,0,0.7);"></div>
 
         <div class="position-absolute top-50 start-0 translate-middle-y ps-4">
 
             <div>
-                <h4 class="typing">Pesan Meja Anda &amp; Nikmati Layanan Terbaik!</h4>
+   <h4 class="typing">
+    <span class="fs-3 fw-bold">Ingin reservasi meja?</span><br>
+    <span class="fs-6">Hubungi kami langsung melalui WhatsApp untuk kemudahan dan respon cepat.</span>
+</h4>
+
+
             </div>
 
      <div class="mt-3">
@@ -68,15 +73,16 @@
 
         </div>
 
-        <div class="position-absolute bottom-0 end-0 p-4" data-aos="fade-up" data-aos-delay="300" data-aos-duration="1000"> 
-            <div class="custom-frame border border-light shadow-lg" style="width: 650px; position: relative;">
-                <img src="{{ asset('assets/images/denah.jpg') }}" class="img-fluid" alt="Thumbnail">
-                <div class="corner top-left"></div>
-                <div class="corner top-right"></div>
-                <div class="corner bottom-left"></div>
-                <div class="corner bottom-right"></div>
-            </div>
-        </div>
+     <div class="position-absolute bottom-0 end-0 p-4" data-aos="fade-up" data-aos-delay="300" data-aos-duration="1000"> 
+    <div class="custom-frame border border-light shadow-lg" style="width: 450px; position: relative;">
+        <img src="{{ asset('assets/images/denah2.png') }}" class="img-fluid" alt="Thumbnail">
+        <div class="corner top-left"></div>
+        <div class="corner top-right"></div>
+        <div class="corner bottom-left"></div>
+        <div class="corner bottom-right"></div>
+    </div>
+</div>
+
 
     </div>
 </div>

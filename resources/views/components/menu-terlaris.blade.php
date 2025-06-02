@@ -10,8 +10,8 @@
         <div class="container position-relative">
             <h2 class="text-center mb-4" style="font-size: 2.8rem; font-weight: bold;">Menu Terlaris</h2>
             <p class="text-center mb-5" style="max-width: 900px; margin: auto; font-size: 1.1rem;">
-                Di sini, Anda akan menemukan berbagai hidangan utama yang disiapkan dengan penuh perhatian dan keahlian. 
-                Nikmati hidangan yang menggugah selera, cocok untuk makan siang, makan malam, atau acara spesial Anda.
+              Dari dapur kami langsung ke meja Anda.
+ Dipilih langsung dari daftar pesanan terbanyak, hidangan-hidangan ini hadir dengan cita rasa yang sudah terbukti disukai banyak orang. Kini saatnya Anda mencicipi kelezatan yang jadi favorit banyak pelanggan kami.
             </p>
 
 <!-- Tombol Panah Kiri -->
