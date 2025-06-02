@@ -62,7 +62,7 @@
     display: none;
 }
 .no-pointer {
-    pointer-events: auto; /* supaya hanya bisa dipanggil via JS */
+    pointer-events: auto;
     user-select: none;
     touch-action: none;
 }
@@ -78,8 +78,8 @@
     font-weight: bold;
     cursor: pointer;
     position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
+    top: 60%;
+    transform: translateY(-60%);
     z-index: 3;
 
     transition: background-color 0.3s ease, transform 0.2s ease;
@@ -92,11 +92,11 @@
 
 /* Posisi kiri dan kanan */
 .left-arrow {
-    left: -20px;
+    left: -40px;
 }
 
 .right-arrow {
-    right: -20px;
+    right: -40px;
 }
 
 @media (max-width: 768px) {
@@ -113,6 +113,7 @@
         width: 40px;
         height: 40px;
         font-size: 1.5rem;
+        
     }
 
     .left-arrow {

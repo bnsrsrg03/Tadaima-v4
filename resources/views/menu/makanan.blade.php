@@ -6,9 +6,10 @@
 
     <div class="row justify-content-center">
         @foreach ($menus as $menu)
-            <div class="col-lg-4 col-md-6 col-sm-12 mb-5" data-aos="fade-up">
-                <div class="card shadow-lg position-relative card-hover" 
-                     style="width: 357px; height: 451px; border-radius: 20px; overflow: hidden;">
+        <div class="col-lg-3 col-md-4 col-sm-6 col-12 mb-4" data-aos="fade-up">
+    <div class="card shadow-lg position-relative card-hover" 
+         style="width: 100%; height: 400px; border-radius: 20px; overflow: hidden;">
+
                      
                     {{-- Kalau bestseller, tampilkan label best seller --}}
                     @if ($menu->bestseller)

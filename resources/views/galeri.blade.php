@@ -6,7 +6,7 @@
 @section('content')
 
 <div class="gallery-wrapper">
-  <h2 style="text-align: center; margin-bottom: 20px;">Galleri</h2>
+<h1 style="text-align: center; margin-bottom: 20px;"><strong>Galleri</strong></h1>
   <div class="gallery-grid">
     @foreach ($galeris as $galeri)
       <div class="gallery-item">

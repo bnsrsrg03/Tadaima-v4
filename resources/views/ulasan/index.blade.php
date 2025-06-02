@@ -157,25 +157,24 @@
 .submit-btn {
     background-color: #0d9cd4;
     color:black;
-    padding: 6px 12px;       /* Ukuran lebih kecil */
+    padding: 6px 12px;     
   font-size: 16px !important;
-        /* Font lebih kecil */
     font-weight: bold;
     border: none;
-    border-radius: 6px;      /* Radius juga diperkecil */
+    border-radius: 6px;     
     cursor: pointer;
-    box-shadow: 0 2px 4px rgba(0,0,0,0.1); /* Bayangan lebih ringan */
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1); 
     float: right;
     transition: opacity 0.2s ease;
 }
 
 
 .submit-btn:hover {
-    opacity: 0.9; /* efek halus saat hover tanpa mengubah ukuran atau warna */
+    opacity: 0.9; 
 }
 
 .submit-btn:active {
-    transform: none; /* hilangkan efek klik membesar/kecil */
+    transform: none; 
 }
 
 

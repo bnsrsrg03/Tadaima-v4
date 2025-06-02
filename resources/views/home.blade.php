@@ -14,13 +14,13 @@
         </div>
     </section>
 
-    {{-- About Section --}}
-    <section class="about bg-white py-12" data-aos="fade-up" data-aos-duration="1000">
+{{-- About Section --}}
+<section class="about bg-white py-8" data-aos="fade-up" data-aos-duration="1000">
     <div class="container mx-auto flex flex-col md:flex-row items-center px-4 gap-8">
-    <img src="{{ asset('assets/images/about.jpg') }}" alt="Ramen"
-     class="w-full h-auto sm:w-[480px] sm:h-[360px] lg:w-[680px] lg:h-[510px] rounded-xl shadow-lg object-cover">
+        <img src="{{ asset('assets/images/about.jpg') }}" alt="Ramen"
+            class="w-full h-auto sm:w-[480px] sm:h-[360px] lg:w-[680px] lg:h-[510px] rounded-xl shadow-lg object-cover">
         <div class="text md:w-1/2" data-aos="fade-left" data-aos-duration="1000">
-        <h2 class="text-[32px] font-bold mb-4">Tentang Kami</h2>
+            <h2 class="text-[32px] font-bold mb-4">Tentang Kami</h2>
             <p class="text-[20px] text-gray-700 mb-4">
                 Tadaima Ramen and Coffee merupakan rumah makan yang didirikan sejak 2023 dengan nuansa Jepang di Kecamatan Balige, Sumatera Utara.
             </p>
@@ -30,6 +30,7 @@
         </div>
     </div>
 </section>
+
 
 
 @php
@@ -82,6 +83,155 @@
 
 
 <style>
+    
+/* === Hero Section === */
+.hero {
+    position: relative;
+    text-align: center;
+    color: white;
+    margin-top: 20px; 
+}
+
+.hero img {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+    max-height: 95vh;
+    display: block;
+    margin: 0 auto;
+     margin-top: -80px;
+}
+
+.hero h1 {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 2;
+}
+
+.hero p {
+    position: absolute;
+    top: 60%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 36px;
+    z-index: 2;
+    font-family: 'Inter', sans-serif; 
+}
+
+.hero::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.3);
+    z-index: 1;
+}
+
+@font-face {
+    font-family: 'Shikamaru';
+    src: url('/assets/fonts/Shikamaru.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+.brand-title {
+    font-family: 'Shikamaru', sans-serif;
+    font-size: 110px; 
+    color: white;
+}
+
+/* === About Section === */
+.about {
+    margin: 3rem 0;
+    padding: 4rem 0;
+    background-color: #fff;
+}
+
+.about .container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 40px;
+    padding: 50px 20px;
+    border-radius: 10px;
+}
+
+.about img {
+    width: 500px;
+    max-width: 100%;
+    border-radius: 25px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+.about .text {
+    max-width: 600px;
+}
+
+.about .text h2 {
+    font-size: 30px;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+.about .text p {
+    font-size: 18px;
+    line-height: 1.6;
+    color: #333;
+    margin-bottom: 25px;
+}
+
+.about .btn {
+    background-color: #a51717;
+    color: white;
+    padding: 14px 28px;
+    border-radius: 30px;
+    font-size: 16px;
+    text-decoration: none;
+    font-weight: bold;
+    display: inline-block;
+    transition: background 0.3s ease;
+}
+
+.about .btn:hover {
+    background-color: #7e1212;
+}
+@media (max-width: 768px) {
+  .about .container {
+    flex-direction: column;
+    padding: 30px 15px;
+    gap: 30px;
+  }
+
+  .about img {
+    width: 100%;
+    max-width: 400px;
+    height: auto;
+    border-radius: 20px;
+  }
+
+  .about .text {
+    max-width: 100%;
+    text-align: center;
+  }
+
+  .about .text h2 {
+    font-size: 28px;
+  }
+
+  .about .text p {
+    font-size: 16px;
+  }
+
+  .about .btn {
+    padding: 12px 24px;
+    font-size: 14px;
+  }
+}
+
 .custom-frame {
     overflow: hidden;
 }
@@ -183,6 +333,55 @@
     }
 
 }
+/*tulisan denah*/
+  .typing {
+  opacity: 0;
+  width: 0;
+  white-space: nowrap;
+  overflow: hidden;
+  border-right: 2px solid #fff;
+  animation:
+    fadeInText 2s forwards   0.5s,
+    typing      3s steps(30) forwards 0.5s,
+    blink       0.7s step-end infinite 3.5s;
+}
+
+@keyframes fadeInText {
+  to { opacity: 1; }
+}
+
+@keyframes typing {
+  to { width: 100%; }
+}
+
+@keyframes blink {
+  50% { border-color: transparent; }
+}
+.typing {
+    display: inline-block;  
+    opacity: 0;
+    width: 0;
+    white-space: nowrap;
+    overflow: hidden;
+    border-right: 2px solid #fff;
+    animation:
+      fadeInText 2s forwards   0.5s,
+      typing      3s steps(30) forwards 0.5s,
+      blink       0.7s step-end infinite 3.5s;
+  }
+  
+  @keyframes fadeInText {
+    to { opacity: 1; }
+  }
+  
+  @keyframes typing {
+    to { width: 100%; }
+  }
+  
+  @keyframes blink {
+    50% { border-color: transparent; }
+  }
+
 </style>
 
 </div>
