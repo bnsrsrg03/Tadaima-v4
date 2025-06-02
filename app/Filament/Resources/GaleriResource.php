@@ -30,9 +30,6 @@ class GaleriResource extends Resource
     {
         return $form
             ->schema([
-                TextInput::make('id')
-                    ->required()
-                    ->label('Id'),
 
                     FileUpload::make('image')
                     ->image() // ini penting agar hanya gambar
