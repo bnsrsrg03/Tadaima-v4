@@ -44,6 +44,7 @@ class GaleriResource extends Resource
         return $table
             ->columns([
                 Tables\Columns\ImageColumn::make('image')
+                ->label('Gambar')
                 ->url(fn($record) => Storage::url($record->image)),
 
 

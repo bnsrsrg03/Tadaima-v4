@@ -34,6 +34,7 @@ class UlasanResource extends Resource
             ->schema([
                 Textarea::make('comment')
                     ->required()
+                    ->label('Komentar')
                     ->maxLength(1000)
                     ->live(onBlur: true)
                     ->dehydrateStateUsing(fn ($state) => BadWordFilter::filter($state))
@@ -63,6 +64,7 @@ class UlasanResource extends Resource
         return $table
             ->columns([
                 TextColumn::make('comment')
+                ->label('Komentar')
                 ->wrap()
                 ->limit(50),
             ])

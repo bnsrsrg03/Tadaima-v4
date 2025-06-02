@@ -40,6 +40,7 @@ class JamOperasionalResource extends Resource
                             'minggu' => 'Minggu',                       
                         ])
                         ->required()
+                        ->label('Hari')
                         ->rules([
                             function (\Filament\Forms\Get $get) {
                                 return \Illuminate\Validation\Rule::unique('jam_operasional', 'day')
@@ -66,7 +67,7 @@ class JamOperasionalResource extends Resource
         return $table
             ->columns([
                 Tables\Columns\TextColumn::make('day')
-                ->label('day')
+                ->label('Hari')
                 ->searchable(),
 
                 Tables\Columns\TextColumn::make('open_time')

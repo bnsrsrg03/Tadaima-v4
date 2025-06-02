@@ -33,15 +33,12 @@ class KaryawanResource extends Resource
     {
         return $form
             ->schema([
-                TextInput::make('id')
-                    ->required()
-                    ->label('Id')
-                    ->Placeholder('Masukkan id karyawan'),
-
                 TextInput::make('name')
+                    ->label('Nama')
                     ->required(),
                 
                 TextInput::make('position')
+                    ->label('Posisi')
                     ->required(),
             
                 FileUpload::make('image')

@@ -32,7 +32,8 @@ class MenuResource extends Resource
             ->schema([
                 Card::make()
                     ->schema([
-                        TextInput::make('name')->required(),
+                        TextInput::make('name')->required()
+                            ->label('Nama Menu'),
 
                         Select::make('kategori_id')
                             ->label('Kategori')
@@ -44,7 +45,8 @@ class MenuResource extends Resource
                         TextInput::make('price')
                             ->required()
                             ->numeric()
-                            ->maxLength(10),
+                            ->maxLength(10)
+                            ->label('Harga'),
 
                         FileUpload::make('image')
                             ->image()
@@ -70,11 +72,13 @@ class MenuResource extends Resource
         return $table
             ->columns([
                 Tables\Columns\ImageColumn::make('image')
-                    ->url(fn ($record) => Storage::url($record->image)),
+                    ->url(fn ($record) => Storage::url($record->image))
+                    ->label('Gambar'),
 
                 Tables\Columns\TextColumn::make('name')
                     ->searchable()
-                    ->sortable(),
+                    ->sortable()
+                    ->label('Nama Menu'),
 
                 Tables\Columns\TextColumn::make('kategori.name')
                     ->label('Kategori')
@@ -82,6 +86,7 @@ class MenuResource extends Resource
                     ->searchable(),
 
                 Tables\Columns\TextColumn::make('price')
+                    ->label('Harga')
                     ->sortable(),
 
                 Tables\Columns\TextColumn::make('description')
