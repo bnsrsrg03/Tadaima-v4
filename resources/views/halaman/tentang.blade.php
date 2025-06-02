@@ -209,6 +209,194 @@
 
 
 <style>
+  /*sejarah*/
+.sejarah-singkat {
+  padding: 80px 24px;
+  background-image: linear-gradient(to bottom, rgba(255, 255, 255, 0.85), rgba(255, 255, 255, 0.85)),
+                    url('/assets/images/sejarah.JPG');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed; 
+  color: #000000;
+  font-family: 'Inter', sans-serif;
+  border-radius: 16px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  transition: background 0.3s ease-in-out;
+}
+
+  
+  .container {
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+  
+  .judul-sejarah {
+    font-size: 40px;
+    text-align: center;
+    font-weight: bold;
+    margin-bottom: 40px;
+    position: relative;
+    font-family: 'Inter', sans-serif;
+  }
+  
+  .konten-sejarah {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    gap: 40px;
+    padding: 20px;
+  }
+  
+  .konten-sejarah .gambar {
+    margin-top: 40px; 
+  }
+  
+  .konten-sejarah .gambar img {
+    width: 400px;
+    height: 600px;
+    object-fit: cover;
+    border-radius: 12px;
+  }
+  
+  .konten-sejarah .teks {
+    max-width: 900px;
+    font-size: 18px;
+    font-family: 'Inter', sans-serif;
+    line-height: 1.8;
+    text-align: justify;
+    overflow: visible;
+    font-weight: 500;
+  }
+  
+  
+  @media (min-width: 1024px) {
+    .konten-sejarah {
+      flex-direction: row;
+      align-items: flex-start;
+    }
+  
+    .konten-sejarah .gambar {
+      flex: 1;
+    }
+  
+    .konten-sejarah .teks {
+      flex: 2;
+      padding-left: 40px;
+    }
+  }
+  
+  .sejarah-singkat .konten-sejarah {
+  display: flex;
+  gap: 20px;
+  align-items: flex-start;
+}
+
+.sejarah-singkat .gambar img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+  border-radius: 8px;
+}
+
+
+/*Profil Karyawan*/
+.tim-kami {
+    position: relative;
+    padding: 4rem 0;
+    z-index: 0;
+  }
+  
+  .tim-kami::before {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    height: 60%;
+    width: 100%;
+    background: linear-gradient(to right, #AA1D1D, #F17C7C); 
+    z-index: -1;
+  }
+  
+  .tim-kami .container h2 {
+    text-align: center;
+    font-weight: 700;
+    margin-bottom: 2.5rem;
+  }
+
+  .tim-kami .row {
+    --bs-gutter-x: 1.5rem;
+  }
+  @media (min-width: 1200px) {
+    .tim-kami .col-karyawan { flex: 0 0 20%; max-width: 20%; }
+  }
+  @media (min-width: 768px) and (max-width: 1199.98px) {
+    .tim-kami .col-karyawan { flex: 0 0 33.3333%; max-width: 33.3333%; }
+  }
+  @media (max-width: 767.98px) {
+    .tim-kami .col-karyawan { flex: 0 0 100%; max-width: 100%; }
+  }
+  
+
+  .tim-kami .card {
+    border: none;
+    border-radius: 0.75rem;
+    overflow: hidden;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s, box-shadow 0.3s;
+  }
+  .tim-kami .card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+  }
+ 
+  .tim-kami .card-img-top {
+    width: 414px;
+    height: 350px;
+    object-fit: cover;
+  }
+  
+  .tim-kami .card-body {
+    padding: 1rem;
+    background-color: #fff;
+  }
+  .tim-kami .card-title {
+    font-size: 18px;
+    font-weight: 600;
+    margin-bottom: 0.25rem;
+    color: #020202;
+  }
+  .tim-kami .card-text {
+    font-size: 16px;
+    color: #000000;
+    text-transform: capitalize;
+  }
+
+  .img-karyawan {
+    width: 310px;
+    height: 413px;
+    object-fit: cover;
+    object-position: center;
+    border-radius: 0.75rem;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  }
+  
+  
+/* Media query untuk layar kecil (HP) */
+@media (max-width: 768px) {
+  .sejarah-singkat .konten-sejarah {
+    flex-direction: column;
+  }
+  .sejarah-singkat .gambar,
+  .sejarah-singkat .teks {
+    width: 100%;
+  }
+  .sejarah-singkat .gambar {
+    margin-bottom: 15px;
+  }
+}
+
+
   .swiper-slide .card:hover img {
     transform: scale(1.05);
   }
