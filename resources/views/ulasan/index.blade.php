@@ -145,7 +145,7 @@
 
 .desc-section {
     width: 785px;
-    height: 480px;
+    height: 430px;
     background-color: #A85454;
     color: white;
     padding: 50px 30px 30px 150px; 
@@ -463,8 +463,37 @@
     display: none !important;
 }
 
+#scrollToTopBtn {
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+}
+
+#scrollToTopBtn:hover {
+    transform: scale(1.05);
+}
 
 
 </style>
 @include('components.whatsapp-button')
+<!-- Tombol Scroll to Top -->
+<button id="scrollToTopBtn"
+  style="display: none;"
+  class="fixed bottom-6 right-6 z-50 w-12 h-12 rounded-full border-2 border-red-600 text-red-600 bg-white hover:bg-red-600 hover:text-white flex items-center justify-center transition duration-300"
+  aria-label="Kembali ke atas">
+  <i class="fas fa-chevron-up text-red-600 hover:text-white transition duration-300" style="font-size: 27px;"></i>
+</button>
+
 @endsection
+@push('scripts')
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        const scrollBtn = document.getElementById("scrollToTopBtn");
+        window.addEventListener("scroll", () => {
+            scrollBtn.style.display = window.scrollY > 500 ? "flex" : "none";
+        });
+        scrollBtn.addEventListener("click", () => {
+            window.scrollTo({ top: 0, behavior: "smooth" });
+        });
+    });
+</script>
+@endpush
