@@ -128,7 +128,7 @@
         @foreach ($karyawans as $karyawan)
           <div class="flex flex-col items-center flex-shrink-0">
             <div class="overflow-hidden">
-              <img src="{{ asset('storage/app/public/' . ($karyawan->image ?? 'images/default.jpg')) }}"
+              <img src="{{ asset('storage/' . ($karyawan->image ?? 'images/default.jpg')) }}"
                    alt="{{ $karyawan->name }}" class="img-karyawan">
             </div>
             <p class="mt-2 text-center text-black font-medium truncate w-full card-title">
