@@ -16,6 +16,10 @@
   </div>
 </div>
 
+@include('components.whatsapp-button')
+
+
+
 <style>
   .gallery-wrapper {
     max-width: 1200px;
@@ -25,7 +29,7 @@
 
   .gallery-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
     gap: 15px;
   }
 
@@ -49,4 +53,23 @@
   }
 </style>
 
+<button id="scrollToTopBtn"
+  class="fixed bottom-6 right-6 z-50 w-12 h-12 rounded-full border-2 border-red-600 text-red-600 bg-transparent hover:bg-red-600 hover:text-white flex items-center justify-center transition duration-300"
+  aria-label="Kembali ke atas">
+  <i class="fas fa-chevron-up" style="font-size: 27px;"></i>
+</button>
 @endsection
+
+@push('scripts')
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        const btn = document.getElementById("scrollToTopBtn");
+        window.addEventListener('scroll', () => {
+            btn.style.display = (window.scrollY > 700) ? "flex" : "none";
+        });
+        btn.addEventListener('click', () => {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+    });
+</script>
+@endpush

@@ -15,11 +15,12 @@
             <img src="{{ asset('assets/images/bestseller.png') }}" alt="Best Seller" class="best-seller-badge">
         @endif
 
- <a href="{{ route('menus.show', $menu->id) }}">
-    <img src="{{ asset('storage/' . $menu->image) }}" 
-             alt="{{ $menu->name }}" 
-             class="card-img-top" 
-             style="height: 300px; width: 100%; object-fit: cover;">
+     <a href="{{ route('menus.show', $menu->id) }}">
+                        <img src="{{ asset('storage/' . $menu->image) }}" 
+                             alt="{{ $menu->name }}" 
+                             class="card-img-top img-fluid"
+                             style="object-fit: cover; height: 250px;">
+                    </a>
              
         <div class="card-body text-center d-flex flex-column justify-content-center" 
              style="height: 152.06px;">
@@ -49,7 +50,7 @@
 
 
 
-@include('components.whatsapp-button')
+
 
 @include('components.whatsapp-button')
 <button id="scrollToTopBtn"
