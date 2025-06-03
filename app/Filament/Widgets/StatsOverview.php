@@ -20,7 +20,7 @@ class StatsOverview extends BaseWidget
                 ->color('info')
                 ->chart([7, 3, 4, 5, 6, 3, 5]),
 
-            Stat::make(' Minuman', Menu::where('kategori_id', 2)->count())
+            Stat::make('Minuman', Menu::where('kategori_id', 2)->count())
                 ->description('Total menu minuman yang tersedia')
                 ->descriptionIcon('heroicon-m-beaker')
                 ->color('danger')
