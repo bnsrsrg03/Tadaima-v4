@@ -27,7 +27,7 @@
                     @foreach ($menus as $menu)
                         <div class="card shadow border-0 flex-shrink-0" style="width: 300px; border-radius: 20px; overflow: hidden;">
                             <a href="{{ route('menus.show', $menu->id) }}">
-                                <img src="{{ asset('storage/' . $menu->image) }}" class="card-img-top"
+                                <img src="{{ asset('storage/app/public/' . $menu->image) }}" class="card-img-top"
                                      alt="{{ $menu->name }}" style="height: 250px; object-fit: cover;">
                             </a>
                             <div class="card-body text-center">
