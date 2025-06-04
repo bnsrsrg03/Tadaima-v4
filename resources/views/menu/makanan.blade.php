@@ -16,7 +16,7 @@
                     @endif
 
                     <a href="{{ route('menus.show', $menu->id) }}">
-                        <img src="{{ asset('storage/' . $menu->image) }}" 
+                        <img src="{{ asset('storage/app/public/' . $menu->image) }}" 
                              alt="{{ $menu->name }}" 
                              class="card-img-top img-fluid"
                              style="object-fit: cover; height: 200px;">
