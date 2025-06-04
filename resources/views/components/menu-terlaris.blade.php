@@ -119,6 +119,15 @@
     #menuScroll .card { width: 220px !important; }
     img.card-img-top { height: 160px !important; }
 }
+.card-img-top {
+    transition: transform 0.4s ease, filter 0.4s ease;
+}
+
+.card:hover .card-img-top {
+    transform: scale(1.05);
+    filter: brightness(85%);
+}
+
 </style>
 
 <!-- SCRIPT -->

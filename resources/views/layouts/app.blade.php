@@ -19,7 +19,7 @@
 
 header.navbar {
     background-color: #AA1D1D;
-    padding: 10px 30px;
+    padding: 10px 10px;
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -110,7 +110,7 @@ header.navbar {
     display: none;
     position: absolute;
     background-color: #AA1D1D;
-    min-width: 150px;
+    min-width: 110px;
     z-index: 1000;
     top: 100%;
     left: 0;
@@ -154,7 +154,7 @@ header.navbar {
     .nav-links {
         display: none;
         flex-direction: column;
-        background-color: #AA1D1D; /* FIXED: tetap merah saat dikecilkan */
+        background-color: #AA1D1D; 
         width: 100%;
         position: absolute;
         top: 70px;
@@ -186,7 +186,7 @@ header.navbar {
     position: relative;
     overflow: hidden;
     box-sizing: border-box;
-    padding: 50px 40px;
+    padding: 70px 70px;
 }
 
 .footer-container {
@@ -195,11 +195,13 @@ header.navbar {
     align-items: flex-start;
     flex: 1;
     gap: 20px;
+
 }
 
 .footer-left {
     display: flex;
     align-items: center;
+       padding-left: 30px; 
 }
 
 .footer-logo img {
@@ -214,7 +216,7 @@ header.navbar {
     display: flex;
     justify-content: space-between;
     align-items: flex-start;
-    gap: 40px;
+    gap: 60px;
 }
 
 .footer-info,
@@ -251,9 +253,9 @@ header.navbar {
     text-align: center;
     font-size: 12px;
     padding-top: 8px;
-    margin-top: 40px;
+    margin-top: 30px;
     border-top: 1px solid #ffffff;
-    width: 100vw; /* agar garis selebar viewport */
+    width: 100vw; 
     position: relative;
     left: 50%;
     transform: translateX(-50%);
@@ -262,9 +264,9 @@ header.navbar {
 
 /* Tombol login */
 .footer-login {
-    position: absolute; /* tetap absolute terhadap footer */
-    bottom: 65px; /* geser ke atas agar berada di atas garis */
-    right: 5px; /* jarak dari kiri */
+    position: absolute; 
+    bottom: 65px; 
+    right: 5px; 
     width: 40px;
     height: 40px;
     background-color: rgba(255, 255, 255, 0.05);
@@ -325,6 +327,7 @@ header.navbar {
         flex-direction: column;
         align-items: center;
         text-align: center;
+         padding-right: 30px;
     }
 
     .footer-info,

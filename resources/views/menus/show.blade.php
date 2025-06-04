@@ -2,28 +2,43 @@
 
 @section('content')
 <div class="container py-5">
-    <div class="row">
-        <!-- Gambar sebagai card -->
+    <div class="row g-5 align-items-start">
+        <!-- Gambar Menu -->
         <div class="col-md-6">
-            <div class="card shadow-sm border-0">
-                    <img src="{{ asset('storage/' . $menu->image) }}" alt="{{ $menu->name }}" class="card-img-top" style="object-fit: cover; height: 100%; max-height: 400px; border-radius: 15px;">
-            </div>
+            <img src="{{ asset('storage/' . $menu->image) }}" 
+                 alt="{{ $menu->name }}" 
+                 class="img-fluid rounded-4 shadow-sm"
+                 style="object-fit: cover; max-height: 400px; width: 100%;">
         </div>
 
-        <!-- Deskripsi di samping gambar -->
-        <div class="col-md-6 d-flex flex-column justify-content-between">
-            <div>
-                <h2>{{ $menu->name }}</h2>
-                <h4 class="mt-3">Deskripsi</h4>
-                <p>{{ $menu->description ?? '-' }}</p>
-                <p><strong>Kategori:</strong> {{ $menu->kategori->name ?? 'Tidak ada kategori' }}</p>
-                <p><strong>Harga:</strong> Rp {{ number_format($menu->price, 0, ',', '.') }}</p>
-            </div>
+        <!-- Detail Menu -->
+        <div class="col-md-6">
+            <h2 class="fw-bold mb-4" style="font-size: 1.8rem;">{{ $menu->name }}</h2>
 
-            <div class="mt-3">
-                <a href="{{ url()->previous() }}" class="btn btn-secondary">Kembali</a>
+            <h5 class="fw-bold mb-1">Deskripsi</h5>
+            <p class="text-dark mb-4" style="font-size: 1.1rem; line-height: 1.7;">
+                {{ $menu->description ?? '-' }}
+            </p>
+
+            @if($menu->kategori)
+                <h5 class="fw-bold mb-1">Kategori</h5>
+                <p class="mb-4" style="font-size: 1.1rem;">{{ $menu->kategori->name }}</p>
+            @endif
+
+            <h5 class="fw-bold mb-1">Harga</h5>
+            <p class="text-dark" style="font-size: 1.1rem;">
+                Rp {{ number_format($menu->price, 0, ',', '.') }}
+            </p>
+
+            <div class="mt-5">
+               <a href="{{ url()->previous() }}" class="btn btn-secondary px-4">
+    Kembali
+</a>
+
             </div>
         </div>
     </div>
 </div>
+@include('components.whatsapp-button')
+
 @endsection
