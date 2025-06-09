@@ -32,6 +32,75 @@
         </div>
     </div>
 
+
+<!-- Form Pesan Makanan -->
+<div class="mt-5 d-flex justify-content-center">
+    <div class="border rounded shadow-sm p-4" style="max-width: 500px; width: 100%;">
+        <h5 class="fw-bold text-center mb-3">Pesan Makanan</h5>
+
+        <div>
+            <div class="mb-3">
+                <label for="nama" class="form-label">Nama</label>
+                <input type="text" id="nama" class="form-control" required>
+            </div>
+
+            <div class="mb-3 row">
+                <div class="col-8">
+                    <label class="form-label">Menu</label>
+                    <input type="text" id="menu" class="form-control" value="{{ $menu->name }}" readonly>
+                </div>
+                <div class="col-4">
+                    <label for="jumlah" class="form-label">Jumlah</label>
+                    <input type="number" id="jumlah" class="form-control" min="1" value="1" required>
+                </div>
+            </div>
+
+            <div class="mb-3">
+                <label for="waktu_pengambilan" class="form-label">Waktu Pengambilan</label>
+                <input type="text" id="waktu_pengambilan" class="form-control" placeholder="Contoh: Besok jam 12 siang" required>
+                <div class="form-text">Isi secara manual sesuai waktu pengambilan</div>
+            </div>
+
+            <div class="mb-3">
+                <label for="catatan" class="form-label">Catatan Tambahan (opsional)</label>
+                <textarea id="catatan" rows="3" class="form-control"></textarea>
+            </div>
+
+            <div class="d-grid">
+                <button onclick="kirimPesan()" class="btn" style="background-color: #AA1D1D; color: white;">
+                    <i class="bi bi-whatsapp"></i> Kirim Pesanan
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    function kirimPesan() {
+        const nama = document.getElementById('nama').value;
+        const menu = document.getElementById('menu').value;
+        const jumlah = document.getElementById('jumlah').value;
+        const waktu = document.getElementById('waktu_pengambilan').value;
+        const catatan = document.getElementById('catatan').value;
+
+        const nomorWa = '6281396537191'; 
+
+        let pesan = `Halo, saya ingin memesan:\n\n` +
+                    `Nama: ${nama}\n` +
+                    `Menu: ${menu}\n` +
+                    `Jumlah: ${jumlah}\n` +
+                    `Waktu Pengambilan: ${waktu}\n`;
+
+        if (catatan) {
+            pesan += `Catatan: ${catatan}`;
+        }
+
+        const url = `https://wa.me/${nomorWa}?text=${encodeURIComponent(pesan)}`;
+        window.open(url, '_blank');
+    }
+</script>
+
+
     <!-- Penilaian Pembeli -->
     <div class="mt-5 p-4 border rounded shadow-sm">
         <h5 class="fw-bold">Penilaian Pembeli</h5>
