@@ -9,7 +9,9 @@ return new class extends Migration {
     {
         Schema::create('ulasans', function (Blueprint $table) {
             $table->id();
-            $table->text('comment'); // Komentar ulasan
+            $table->foreignId('menu_id')->constrained()->onDelete('cascade');
+            $table->tinyInteger('rating'); // nilai dari 1 - 5
+            $table->text('comment')->nullable(); // komentar ulasan (boleh kosong)
             $table->timestamps();
             $table->softDeletes();
         });
@@ -18,6 +20,5 @@ return new class extends Migration {
     public function down(): void
     {
         Schema::dropIfExists('ulasans');
-
     }
 };

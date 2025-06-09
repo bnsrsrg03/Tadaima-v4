@@ -23,7 +23,8 @@ Route::get('/menus/{menu}', [MenuController::class, 'show'])->name('menus.show')
 
 use App\Http\Controllers\UlasanController;
 Route::get('/ulasan', [UlasanController::class, 'index'])->name('ulasan.index');
-Route::post('/ulasan', [UlasanController::class, 'store'])->name('ulasan.store');
+Route::post('/menu/{menu}/ulasan', [UlasanController::class, 'store'])->name('ulasan.store');
+
 Route::delete('/ulasan/{id}', [UlasanController::class, 'destroy'])->name('ulasan.destroy');
 
 
