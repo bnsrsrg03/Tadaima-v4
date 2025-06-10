@@ -21,4 +21,10 @@ class Menu extends Model
     {
         return $this->belongsTo(Kategori::class);
     }
+
+    public function ulasan()
+{
+    return $this->hasMany(\App\Models\Ulasan::class);
+}
+
 }

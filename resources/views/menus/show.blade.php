@@ -3,10 +3,11 @@
 @section('content')
 <div class="container py-5">
     <div class="row g-4">
-       <div class="col-md-6 text-center">
+<div class="col-md-6 mx-auto text-center">
     <div class="mb-3">
         <h2 class="fw-bold">{{ $menu->name }}</h2>
     </div>
+
     <div class="mb-4">
         <img src="{{ asset('storage/' . $menu->image) }}"
              alt="{{ $menu->name }}"
@@ -14,11 +15,11 @@
              style="max-height: 350px; width: auto;">
     </div>
 
-   <div class="d-flex justify-content-center align-items-start gap-5" style="margin-bottom: 1rem; margin-left: -10px;">
-
-        <div class="text-start">
+    <div class="d-flex justify-content-between w-100 px-3 text-start">
+        <!-- Kiri: Deskripsi dan Kategori -->
+        <div>
             <h5 class="fw-bold mb-1">Deskripsi</h5>
-            <p>{{ $menu->description ?? '-' }}</p>
+            <p class="mb-2">{{ $menu->description ?? '-' }}</p>
 
             @if($menu->kategori)
                 <h5 class="fw-bold mb-1">Kategori</h5>
@@ -26,12 +27,16 @@
             @endif
         </div>
 
-        <div class="text-start">
+        <!-- Kanan: Harga -->
+        <div class="text-end" style="min-width: 120px;">
             <h5 class="fw-bold mb-1">Harga</h5>
             <p style="color: #AA1D1D; font-weight: bold;">Rp {{ number_format($menu->price, 0, ',', '.') }}</p>
         </div>
     </div>
+
+
 </div>
+
 
 
         <!-- Kolom Kanan: Form Pemesanan -->
@@ -145,13 +150,15 @@
             <p>Belum ada ulasan.</p>
         @endforelse
 
-        {{ $ulasan->links() }} <!-- Paginasi -->
+  <div class="pagination-links">
+    {{ $ulasan->links() }}
+</div>
     </div>
 </div>
 
 <!-- Modal Form Ulasan -->
 <div class="modal fade" id="ulasanModal" tabindex="-1" aria-labelledby="ulasanModalLabel" aria-hidden="true">
-  <div class="modal-dialog">
+  <div class="modal-dialog modal-dialog-centered">
     <div class="modal-content border-primary">
       <div class="modal-body text-center">
         <!-- Rating (bintang) -->
@@ -177,6 +184,7 @@
     </div>
   </div>
 </div>
+
 
 @include('components.whatsapp-button')
 @endsection
@@ -204,3 +212,84 @@
     }
 </script>
 @endpush
+<style>
+.pagination-links nav {
+    display: flex;
+    justify-content: center;
+    margin-top: 30px;
+}
+.pagination-links nav > div:first-child {
+    display: none !important;
+}
+
+.pagination-links nav ul {
+    display: flex;
+    list-style: none;
+    padding: 0;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+.pagination-links nav li {
+    display: inline-block;
+}
+
+.pagination-links nav li a, 
+.pagination-links nav li span {
+    padding: 8px 12px;
+    background-color: white;
+    border: 1px solid #ddd;
+    border-radius: 12px;
+    text-decoration: none;
+    color: #444;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+    min-width: 45px;
+    text-align: center;
+    font-size: 16px !important;
+    line-height: 1;
+}
+
+.pagination-links nav li a:hover {
+    background-color: #28b6ff;
+    color: white;
+    transform: translateY(-2px);
+}
+.pagination-links nav li.active span {
+    background-color: #337ab7;
+    color: white;
+    font-weight: bold;
+    border: 1px solid #2e6da4;
+    border-radius: 4px;
+    box-shadow: inset 0 -1px 0 rgba(0, 0, 0, 0.15);
+}
+
+
+
+.pagination-links nav li.disabled span {
+    background-color: #f8f8f8;
+    color: #bbb;
+    cursor: not-allowed;
+    box-shadow: none;
+    border: 1px solid #eee;
+    border-radius: 4px;
+}
+@media (max-width: 576px) {
+    .pagination-links nav ul {
+        gap: 5px;
+    }
+
+    .pagination-links nav li a, 
+    .pagination-links nav li span {
+        padding: 8px 12px;
+        font-size: 14px;
+    }
+}
+.pagination-links svg {
+    width: 16px;
+    height: 16px;
+}
+.pagination-links nav > div:first-of-type {
+    display: none!important;
+}
+</style>
