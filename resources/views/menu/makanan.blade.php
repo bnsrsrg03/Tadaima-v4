@@ -15,12 +15,23 @@
                         <img src="{{ asset('assets/images/bestseller.png') }}" alt="Best Seller" class="best-seller-badge">
                     @endif
 
-                    <a href="{{ route('menus.show', $menu->id) }}">
-                        <img src="{{ asset('storage/app/public/' . $menu->image) }}" 
-                             alt="{{ $menu->name }}" 
-                             class="card-img-top img-fluid"
-                             style="object-fit: cover; height: 200px;">
-                    </a>
+                 <a href="{{ route('menus.show', $menu->id) }}">
+    <img src="{{ asset('storage/app/public/' . $menu->image) }}" 
+         alt="{{ $menu->name }}" 
+         class="card-img-top img-fluid"
+         style="object-fit: cover; height: 200px;">
+</a>
+
+<!-- Rating Bintang Saja -->
+<div class="text-center mt-2">
+    @php
+        $rating = round($menu->rating ?? 0);
+    @endphp
+    @for ($i = 1; $i <= 5; $i++)
+        <i class="fa {{ $i <= $rating ? 'fa-star text-warning' : 'fa-star-o text-muted' }}"></i>
+    @endfor
+</div>
+
 
                     <div class="card-body text-center d-flex flex-column justify-content-center px-3">
                         <h4 class="card-title mb-2" style="font-weight: 700;">{{ $menu->name }}</h4>
@@ -39,7 +50,7 @@
     <button type="submit"
         class="btn mt-auto"
         style="background-color: #800000; color: white; font-weight: 600; border-radius: 8px; padding: 10px 20px;">
-        <i class="bi bi-info-circle me-2"></i> Lihat Detail Menu
+        <i class="bi bi-info-circle me-2"></i> Pesan Sekarang
     </button>
 </form>
 
@@ -86,7 +97,10 @@
 
 
 @endsection
-
+@push('styles')
+<!-- Font Awesome for star icons -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+@endpush
 
 @push('scripts')
 <script>

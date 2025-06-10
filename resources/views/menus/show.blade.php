@@ -2,73 +2,74 @@
 
 @section('content')
 <div class="container py-5">
-    <div class="row g-5 align-items-start">
-        <!-- Gambar Menu -->
-        <div class="col-md-6">
-            <img src="{{ asset('storage/' . $menu->image) }}" 
-                 alt="{{ $menu->name }}" 
-                 class="img-fluid rounded-4 shadow-sm"
-                 style="object-fit: cover; max-height: 400px; width: 100%;">
-        </div>
+    <div class="row g-4">
+       <div class="col-md-6 text-center">
+    <div class="mb-3">
+        <h2 class="fw-bold">{{ $menu->name }}</h2>
+    </div>
+    <div class="mb-4">
+        <img src="{{ asset('storage/' . $menu->image) }}"
+             alt="{{ $menu->name }}"
+             class="img-fluid rounded-4 shadow-sm"
+             style="max-height: 350px; width: auto;">
+    </div>
 
-        <!-- Detail Menu -->
-        <div class="col-md-6">
-            <h2 class="fw-bold mb-4" style="font-size: 1.8rem;">{{ $menu->name }}</h2>
+   <div class="d-flex justify-content-center align-items-start gap-5" style="margin-bottom: 1rem; margin-left: -10px;">
 
+        <div class="text-start">
             <h5 class="fw-bold mb-1">Deskripsi</h5>
-            <p class="text-dark mb-4" style="font-size: 1.1rem; line-height: 1.7;">
-                {{ $menu->description ?? '-' }}
-            </p>
+            <p>{{ $menu->description ?? '-' }}</p>
 
             @if($menu->kategori)
                 <h5 class="fw-bold mb-1">Kategori</h5>
-                <p class="mb-4" style="font-size: 1.1rem;">{{ $menu->kategori->name }}</p>
+                <p>{{ $menu->kategori->name }}</p>
             @endif
+        </div>
 
+        <div class="text-start">
             <h5 class="fw-bold mb-1">Harga</h5>
-            <p class="text-dark" style="font-size: 1.1rem;">
-                Rp {{ number_format($menu->price, 0, ',', '.') }}
-            </p>
+            <p style="color: #AA1D1D; font-weight: bold;">Rp {{ number_format($menu->price, 0, ',', '.') }}</p>
         </div>
     </div>
+</div>
 
 
-<!-- Form Pesan Makanan -->
-<div class="mt-5 d-flex justify-content-center">
-    <div class="border rounded shadow-sm p-4" style="max-width: 500px; width: 100%;">
-        <h5 class="fw-bold text-center mb-3">Pesan Makanan</h5>
+        <!-- Kolom Kanan: Form Pemesanan -->
+       <div class="col-md-6"> 
+    <div class="border rounded shadow-sm p-4" style="max-width: 500px; margin: 0 auto;">
+        <h5 class="fw-bold text-center mb-3">Format Pemesanan</h5>
 
         <div>
             <div class="mb-3">
-                <label for="nama" class="form-label">Nama</label>
+                <label for="nama" class="form-label fw-bold fs-6">Nama</label>
                 <input type="text" id="nama" class="form-control" required>
             </div>
 
             <div class="mb-3 row">
                 <div class="col-8">
-                    <label class="form-label">Menu</label>
+                    <label class="form-label fw-bold fs-6">Menu</label>
                     <input type="text" id="menu" class="form-control" value="{{ $menu->name }}" readonly>
                 </div>
                 <div class="col-4">
-                    <label for="jumlah" class="form-label">Jumlah</label>
+                    <label for="jumlah" class="form-label fw-bold fs-6">Jumlah</label>
                     <input type="number" id="jumlah" class="form-control" min="1" value="1" required>
                 </div>
             </div>
 
             <div class="mb-3">
-                <label for="waktu_pengambilan" class="form-label">Waktu Pengambilan</label>
-                <input type="text" id="waktu_pengambilan" class="form-control" placeholder="Contoh: Besok jam 12 siang" required>
-                <div class="form-text">Isi secara manual sesuai waktu pengambilan</div>
+                <label for="waktu_pengambilan" class="form-label fw-bold fs-6">Waktu Pengambilan</label>
+                <input type="text" id="waktu_pengambilan" class="form-control" required>
+                <div class="form-text">Tidak menyediakan sistem pengantaran</div>
             </div>
 
             <div class="mb-3">
-                <label for="catatan" class="form-label">Catatan Tambahan (opsional)</label>
+                <label for="catatan" class="form-label fw-bold fs-6">Catatan Tambahan (opsional)</label>
                 <textarea id="catatan" rows="3" class="form-control"></textarea>
             </div>
 
             <div class="d-grid">
                 <button onclick="kirimPesan()" class="btn" style="background-color: #AA1D1D; color: white;">
-                    <i class="bi bi-whatsapp"></i> Kirim Pesanan
+                    <i class="fab fa-whatsapp"></i> Pesan Sekarang
                 </button>
             </div>
         </div>
