@@ -172,8 +172,30 @@ header.navbar {
     }
 }
 
+/* Tombol login */
+.navbar-login {
+    margin-left: 10px;
+    background-color: rgba(255, 255, 255, 0.1);
+    border: 2px solid rgba(255, 255, 255, 0.4);
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    backdrop-filter: blur(5px);
+    transition: all 0.3s ease;
+}
+.navbar-login a {
+    color: white;
+    font-size: 20px;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
 
-
+.navbar-login a:hover {
+    color: #FFD700; 
+}
 
     footer {
     background-color: #AA1D1D;
@@ -262,45 +284,6 @@ header.navbar {
 }
 
 
-/* Tombol login */
-.footer-login {
-    position: absolute; 
-    bottom: 65px; 
-    right: 5px; 
-    width: 40px;
-    height: 40px;
-    background-color: rgba(255, 255, 255, 0.05);
-    border: 2px solid rgba(255, 255, 255, 0.4);
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    backdrop-filter: blur(5px);
-    transition: all 0.3s ease;
-    z-index: 2; /* pastikan tetap di atas elemen lain */
-}
-
-
-.footer-login a {
-    color: rgba(255, 255, 255, 0.7);
-    font-size: 16px;
-    text-decoration: none;
-    width: 100%;
-    height: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-.footer-login:hover {
-    background-color: rgba(255, 255, 255, 0.15);
-    border-color: rgba(255, 255, 255, 0.6);
-}
-
-.footer-login a:hover {
-    color: white;
-}
-
 /* Responsif */
 @media (max-width: 768px) {
     footer {
@@ -366,9 +349,15 @@ header.navbar {
                         <li><a href="{{ route('menu.cemilan') }}">Cemilan</a></li>
                     </ul>
                 </li>
-                <li><a href="{{ route('ulasan.index') }}">Ulasan</a></li>
                 <li><a href="{{ route('halaman.tentang') }}">Tentang Kami</a></li>
                 <li><a href="{{ route('galeri') }}">Galeri</a></li>
+
+                
+    <div class="navbar-login">
+        <a href="{{ url('/admin/login') }}" title="Login Admin">
+            <i class="fa-regular fa-user"></i>
+        </a>
+    </div>
             </ul>
         </nav>
     </div>
@@ -404,12 +393,6 @@ header.navbar {
                 <p><i class="fab fa-tiktok"></i> <a href="https://www.tiktok.com/@tadaimaramen" target="_blank">tadaimaramen</a></p>
             </div>
         </div>
-    </div>
-
-    <div class="footer-login">
-        <a href="{{ url('/admin/login') }}" title="Login Admin">
-            <i class="fa-regular fa-user"></i>
-        </a>
     </div>
 
     <div class="footer-bottom">

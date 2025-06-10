@@ -35,12 +35,14 @@
                             $pesan = urlencode("Halo, saya ingin memesan $nama dengan harga $harga");
                         @endphp
 
-                        <a href="https://wa.me/{{ $nomor }}?text={{ $pesan }}"
-                           target="_blank"
-                           class="btn btn-whatsapp mt-auto"
-                           style="background-color: #800000; color: white; font-weight: 600; border-radius: 8px; padding: 10px 20px;">
-                           <i class="fab fa-whatsapp me-2"></i> Pesan Sekarang
-                        </a>
+                     <form action="{{ route('menus.show', $menu->id) }}" method="GET">
+    <button type="submit"
+        class="btn mt-auto"
+        style="background-color: #800000; color: white; font-weight: 600; border-radius: 8px; padding: 10px 20px;">
+        <i class="bi bi-info-circle me-2"></i> Lihat Detail Menu
+    </button>
+</form>
+
                     </div>
                 </div>
             </div>

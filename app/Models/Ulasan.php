@@ -12,7 +12,8 @@ class Ulasan extends Model
     use HasFactory;
     use SoftDeletes;
 
-    protected $fillable = [ 'comment']; // Kolom yang bisa diisi
+    // Izinkan semua field yang akan diisi lewat controller
+    protected $fillable = ['menu_id', 'rating', 'comment'];
 
     protected static function boot()
     {
