@@ -10,11 +10,17 @@ use App\Models\Ulasan;
 class MenuController extends Controller
 {
     public function makanan()
-    {
-        $kategori = Kategori::where('name', 'makanan')->firstOrFail();
-        $menus = $kategori->menus()->get();
-        return view('menu.makanan', compact('menus'));
+{
+    $kategori = Kategori::where('name', 'makanan')->firstOrFail();
+    $menus = $kategori->menus()->with('ulasan')->get();
+
+    foreach ($menus as $menu) {
+        $menu->rating = round($menu->ulasan->avg('rating'), 1);
     }
+
+    return view('menu.makanan', compact('menus'));
+}
+
     
     public function minuman()
     {

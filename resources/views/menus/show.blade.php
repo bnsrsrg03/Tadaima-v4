@@ -5,70 +5,72 @@
     <div class="row g-5 align-items-start">
         <!-- Gambar Menu -->
         <div class="col-md-6">
-            <img src="{{ asset('storage/app/public/' . $menu->image) }}" 
+            <img src="{{ asset('storage/' . $menu->image) }}" 
                  alt="{{ $menu->name }}" 
                  class="img-fluid rounded-4 shadow-sm"
                  style="object-fit: cover; max-height: 400px; width: 100%;">
         </div>
 
-        <!-- Detail Menu -->
-        <div class="col-md-6">
-            <h2 class="fw-bold mb-4" style="font-size: 1.8rem;">{{ $menu->name }}</h2>
-
+    <div class="d-flex justify-content-between w-100 px-3 text-start">
+        <!-- Kiri: Deskripsi dan Kategori -->
+        <div>
             <h5 class="fw-bold mb-1">Deskripsi</h5>
-            <p class="text-dark mb-4" style="font-size: 1.1rem; line-height: 1.7;">
-                {{ $menu->description ?? '-' }}
-            </p>
+            <p class="mb-2">{{ $menu->description ?? '-' }}</p>
 
             @if($menu->kategori)
                 <h5 class="fw-bold mb-1">Kategori</h5>
-                <p class="mb-4" style="font-size: 1.1rem;">{{ $menu->kategori->name }}</p>
+                <p>{{ $menu->kategori->name }}</p>
             @endif
+        </div>
 
+        <!-- Kanan: Harga -->
+        <div class="text-end" style="min-width: 120px;">
             <h5 class="fw-bold mb-1">Harga</h5>
-            <p class="text-dark" style="font-size: 1.1rem;">
-                Rp {{ number_format($menu->price, 0, ',', '.') }}
-            </p>
+            <p style="color: #AA1D1D; font-weight: bold;">Rp {{ number_format($menu->price, 0, ',', '.') }}</p>
         </div>
     </div>
 
 
-<!-- Form Pesan Makanan -->
-<div class="mt-5 d-flex justify-content-center">
-    <div class="border rounded shadow-sm p-4" style="max-width: 500px; width: 100%;">
-        <h5 class="fw-bold text-center mb-3">Pesan Makanan</h5>
+</div>
+
+
+
+        <!-- Kolom Kanan: Form Pemesanan -->
+       <div class="col-md-6"> 
+    <div class="border rounded shadow-sm p-4" style="max-width: 500px; margin: 0 auto;">
+        <h5 class="fw-bold text-center mb-3">Format Pemesanan</h5>
 
         <div>
             <div class="mb-3">
-                <label for="nama" class="form-label">Nama</label>
+                <label for="nama" class="form-label fw-bold fs-6">Nama</label>
                 <input type="text" id="nama" class="form-control" required>
             </div>
 
             <div class="mb-3 row">
                 <div class="col-8">
-                    <label class="form-label">Menu</label>
+                    <label class="form-label fw-bold fs-6">Menu</label>
                     <input type="text" id="menu" class="form-control" value="{{ $menu->name }}" readonly>
                 </div>
                 <div class="col-4">
-                    <label for="jumlah" class="form-label">Jumlah</label>
+                    <label for="jumlah" class="form-label fw-bold fs-6">Jumlah</label>
                     <input type="number" id="jumlah" class="form-control" min="1" value="1" required>
                 </div>
             </div>
 
             <div class="mb-3">
-                <label for="waktu_pengambilan" class="form-label">Waktu Pengambilan</label>
-                <input type="text" id="waktu_pengambilan" class="form-control" placeholder="Contoh: Besok jam 12 siang" required>
-                <div class="form-text">Isi secara manual sesuai waktu pengambilan</div>
+                <label for="waktu_pengambilan" class="form-label fw-bold fs-6">Waktu Pengambilan</label>
+                <input type="text" id="waktu_pengambilan" class="form-control" required>
+                <div class="form-text">Tidak menyediakan sistem pengantaran</div>
             </div>
 
             <div class="mb-3">
-                <label for="catatan" class="form-label">Catatan Tambahan (opsional)</label>
+                <label for="catatan" class="form-label fw-bold fs-6">Catatan Tambahan (opsional)</label>
                 <textarea id="catatan" rows="3" class="form-control"></textarea>
             </div>
 
             <div class="d-grid">
                 <button onclick="kirimPesan()" class="btn" style="background-color: #AA1D1D; color: white;">
-                    <i class="bi bi-whatsapp"></i> Kirim Pesanan
+                    <i class="fab fa-whatsapp"></i> Pesan Sekarang
                 </button>
             </div>
         </div>
@@ -144,13 +146,15 @@
             <p>Belum ada ulasan.</p>
         @endforelse
 
-        {{ $ulasan->links() }} <!-- Paginasi -->
+  <div class="pagination-links">
+    {{ $ulasan->links() }}
+</div>
     </div>
 </div>
 
 <!-- Modal Form Ulasan -->
 <div class="modal fade" id="ulasanModal" tabindex="-1" aria-labelledby="ulasanModalLabel" aria-hidden="true">
-  <div class="modal-dialog">
+  <div class="modal-dialog modal-dialog-centered">
     <div class="modal-content border-primary">
       <div class="modal-body text-center">
         <!-- Rating (bintang) -->
@@ -176,6 +180,7 @@
     </div>
   </div>
 </div>
+
 
 @include('components.whatsapp-button')
 @endsection
@@ -203,3 +208,84 @@
     }
 </script>
 @endpush
+<style>
+.pagination-links nav {
+    display: flex;
+    justify-content: center;
+    margin-top: 30px;
+}
+.pagination-links nav > div:first-child {
+    display: none !important;
+}
+
+.pagination-links nav ul {
+    display: flex;
+    list-style: none;
+    padding: 0;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+.pagination-links nav li {
+    display: inline-block;
+}
+
+.pagination-links nav li a, 
+.pagination-links nav li span {
+    padding: 8px 12px;
+    background-color: white;
+    border: 1px solid #ddd;
+    border-radius: 12px;
+    text-decoration: none;
+    color: #444;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+    min-width: 45px;
+    text-align: center;
+    font-size: 16px !important;
+    line-height: 1;
+}
+
+.pagination-links nav li a:hover {
+    background-color: #28b6ff;
+    color: white;
+    transform: translateY(-2px);
+}
+.pagination-links nav li.active span {
+    background-color: #337ab7;
+    color: white;
+    font-weight: bold;
+    border: 1px solid #2e6da4;
+    border-radius: 4px;
+    box-shadow: inset 0 -1px 0 rgba(0, 0, 0, 0.15);
+}
+
+
+
+.pagination-links nav li.disabled span {
+    background-color: #f8f8f8;
+    color: #bbb;
+    cursor: not-allowed;
+    box-shadow: none;
+    border: 1px solid #eee;
+    border-radius: 4px;
+}
+@media (max-width: 576px) {
+    .pagination-links nav ul {
+        gap: 5px;
+    }
+
+    .pagination-links nav li a, 
+    .pagination-links nav li span {
+        padding: 8px 12px;
+        font-size: 14px;
+    }
+}
+.pagination-links svg {
+    width: 16px;
+    height: 16px;
+}
+.pagination-links nav > div:first-of-type {
+    display: none!important;
+}
+</style>
