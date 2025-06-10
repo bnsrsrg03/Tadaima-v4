@@ -5,7 +5,7 @@
     <div class="row g-5 align-items-start">
         <!-- Gambar Menu -->
         <div class="col-md-6">
-            <img src="{{ asset('storage/' . $menu->image) }}" 
+            <img src="{{ asset('storage/app/public/' . $menu->image) }}" 
                  alt="{{ $menu->name }}" 
                  class="img-fluid rounded-4 shadow-sm"
                  style="object-fit: cover; max-height: 400px; width: 100%;">
