@@ -36,9 +36,10 @@
 
       <!-- Tombol Kembali & Ulasan -->
 <div class="d-flex gap-2 mt-4">
-    <a href="{{ url('/menu.makanan') }}" class="btn btn-secondary">
-        ← Kembali ke Daftar Menu
-    </a>
+  <a href="{{ url()->previous() }}" class="btn btn-secondary">
+    ← Kembali
+</a>
+
 
     <!-- Tombol Buat Ulasan -->
     <a href="#" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#ulasanModal">
@@ -158,11 +159,17 @@
                 <span>{{ $i <= $review->rating ? '★' : '☆' }}</span>
             @endfor
         </div>
-        <p class="mb-0">{{ $review->comment }}</p>
+
+        @if($review->comment)
+            <p class="mb-0">{{ $review->comment }}</p>
+        @else
+            <p class="text-muted mb-0"><em>(Tidak ada komentar)</em></p>
+        @endif
     </div>
 @empty
     <p>Belum ada ulasan.</p>
 @endforelse
+
 
 
 
@@ -180,23 +187,28 @@
       <div class="modal-body text-center">
         <div class="mb-3">
           @for ($i = 1; $i <= 5; $i++)
-            <i class="fa fa-star-o" id="star-{{ $i }}" onclick="setRating({{ $i }})" style="cursor: pointer; font-size: 24px;"></i>
+            <i class="fa fa-star-o text-warning" id="star-{{ $i }}" onclick="setRating({{ $i }})"
+               style="cursor: pointer; font-size: 28px;"></i>
           @endfor
         </div>
-        <form action="{{ route('ulasan.store', $menu->id) }}" method="POST">
-            @csrf
-            <input type="hidden" name="rating" id="rating-value" value="0">
-            <textarea name="comment" class="form-control mb-3" rows="4" placeholder="Isi Ulasan" required></textarea>
-            <button type="submit" class="btn btn-primary">Kirim</button>
+
+        <form action="{{ route('ulasan.store', $menu->id) }}" method="POST" onsubmit="return validateRating();">
+          @csrf
+          <input type="hidden" name="rating" id="rating-value" value="0">
+
+          <textarea name="comment" class="form-control mb-3" rows="4" placeholder="Tulis komentar Anda..."></textarea>
+
+          <button type="submit" class="btn btn-primary">Kirim</button>
         </form>
 
         <p class="text-danger mt-2" style="font-size: 12px;">
-            *Setelah mengirim ulasan, ulasan Anda akan ditampilkan secara permanen dan tidak dapat dihapus atau diedit, kecuali oleh admin yang mengelolanya.
+          *Rating bintang wajib diisi. Setelah mengirim ulasan, data akan ditampilkan secara permanen dan hanya dapat dihapus oleh admin.
         </p>
       </div>
     </div>
   </div>
 </div>
+
 
 
 @include('components.whatsapp-button')
@@ -222,6 +234,17 @@
         }
     }
 </script>
+<script>
+    function validateRating() {
+        const rating = document.getElementById('rating-value').value;
+        if (rating === '0') {
+            alert('Silakan pilih rating bintang terlebih dahulu.');
+            return false;
+        }
+        return true;
+    }
+</script>
+
 @endpush
 <style>
 .review-card {

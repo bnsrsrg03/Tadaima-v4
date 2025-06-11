@@ -7,20 +7,26 @@
     <div class="row justify-content-center">
         @foreach ($menus as $menu)
             <div class="col-lg-3 col-md-6 col-sm-12 mb-4" data-aos="fade-up">
-                <div class="card shadow-lg position-relative card-hover h-100"
-                     style="border-radius: 20px; overflow: hidden;">
+                <div class="card shadow-lg position-relative card-hover h-100" 
+                     style="border-radius: 20px; overflow: hidden;"> 
 
-                    {{-- Kalau bestseller, tampilkan label best seller --}}
-                    @if ($menu->bestseller)
-                        <img src="{{ asset('assets/images/bestseller.png') }}" alt="Best Seller" class="best-seller-badge">
-                    @endif
+                 <a href="{{ route('menus.show', $menu->id) }}">
+    <img src="{{ asset('storage/app/public/' . $menu->image) }}" 
+         alt="{{ $menu->name }}" 
+         class="card-img-top img-fluid"
+         style="object-fit: cover; height: 200px;">
+</a>
 
-                    <a href="{{ route('menus.show', $menu->id) }}">
-                        <img src="{{ asset('storage/app/public/' . $menu->image) }}"
-                             alt="{{ $menu->name }}"
-                             class="card-img-top img-fluid"
-                             style="object-fit: cover; height: 200px;">
-                    </a>
+<!-- Rating Bintang Saja -->
+<div class="text-center mt-2">
+    @php
+        $rating = round($menu->rating ?? 0);
+    @endphp
+    @for ($i = 1; $i <= 5; $i++)
+        <i class="fa {{ $i <= $rating ? 'fa-star text-warning' : 'fa-star-o text-muted' }}"></i>
+    @endfor
+</div>
+
 
                     <div class="card-body text-center d-flex flex-column justify-content-center px-3">
                         <h4 class="card-title mb-2" style="font-weight: 700;">{{ $menu->name }}</h4>
@@ -35,12 +41,14 @@
                             $pesan = urlencode("Halo, saya ingin memesan $nama dengan harga $harga");
                         @endphp
 
-                        <a href="https://wa.me/{{ $nomor }}?text={{ $pesan }}"
-                           target="_blank"
-                           class="btn btn-whatsapp mt-auto"
-                           style="background-color: #800000; color: white; font-weight: 600; border-radius: 8px; padding: 10px 20px;">
-                           <i class="fab fa-whatsapp me-2"></i> Pesan Sekarang
-                        </a>
+                     <form action="{{ route('menus.show', $menu->id) }}" method="GET">
+    <button type="submit"
+        class="btn mt-auto"
+        style="background-color: #800000; color: white; font-weight: 600; border-radius: 8px; padding: 10px 20px;">
+        <i class="bi bi-info-circle me-2"></i> Pesan Sekarang
+    </button>
+</form>
+
                     </div>
                 </div>
             </div>
@@ -48,10 +56,12 @@
     </div>
 </div>
 
+
 <style>
 .card-hover {
     transition: transform 0.3s ease-in-out;
 }
+
 .card-hover:hover {
     transform: scale(1.05);
 }
@@ -69,6 +79,9 @@
 }
 </style>
 
+
+
+
 @include('components.whatsapp-button')
 <button id="scrollToTopBtn"
   style="display: none;"
@@ -76,14 +89,20 @@
   aria-label="Kembali ke atas">
   <i class="fas fa-chevron-up text-red-600 hover:text-white transition duration-300" style="font-size: 27px;"></i>
 </button>
+
+
 @endsection
+@push('styles')
+<!-- Font Awesome for star icons -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+@endpush
 
 @push('scripts')
 <script>
     document.addEventListener("DOMContentLoaded", function () {
         const btn = document.getElementById("scrollToTopBtn");
         window.addEventListener('scroll', () => {
-            btn.style.display = (window.scrollY > 150) ? "flex" : "none";
+            btn.style.display = (window.scrollY > 700) ? "flex" : "none";
         });
         btn.addEventListener('click', () => {
             window.scrollTo({ top: 0, behavior: 'smooth' });
@@ -95,14 +114,15 @@
 @section('styles')
 <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
 <style>
-.card {
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-.card:hover {
-    transform: translateY(-10px);
-    box-shadow: 0 18px 28px rgba(0, 0, 0, 0.15);
-}
+    .card {
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    .card:hover {
+        transform: translateY(-10px);
+        box-shadow: 0 18px 28px rgba(0, 0, 0, 0.15);
+    }
 </style>
+
 @endsection
 
 @section('scripts')
@@ -113,4 +133,6 @@
         once: true
     });
 </script>
+
+
 @endsection

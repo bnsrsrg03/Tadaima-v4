@@ -15,12 +15,13 @@ class Ulasan extends Model
     // Izinkan semua field yang akan diisi lewat controller
     protected $fillable = ['menu_id', 'rating', 'comment'];
 
-    protected static function boot()
-    {
-        parent::boot();
-
-        static::saving(function ($ulasan) {
-            $ulasan->comment = BadWordFilter::filter($ulasan->comment);
-        });
+   public function getCommentAttribute($value)
+{
+    if (is_null($value)) {
+        return null; // atau bisa juga return ''; tergantung kebutuhan
     }
+
+    return BadWordFilter::filter($value);
+}
+
 }

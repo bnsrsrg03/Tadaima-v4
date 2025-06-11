@@ -15,18 +15,18 @@ class UlasanController extends Controller
     }
 
     // Menyimpan ulasan baru
-    public function store(Request $request, $menuId)
-    {
-        $request->validate([
-            'rating' => 'required|integer|min:1|max:5',
-            'comment' => 'required|string|max:1000',
-        ]);
+public function store(Request $request, $menuId)
+{
+    $request->validate([
+        'rating' => 'required|integer|min:1|max:5',
+    ]);
 
-        Ulasan::create([
-            'menu_id' => $menuId,
-            'rating' => $request->rating,
-            'comment' => $request->comment,
-        ]);
+    Ulasan::create([
+        'menu_id' => $menuId,
+        'user_id' => auth()->id(),
+        'rating' => $request->rating,
+        'comment' => $request->comment, // boleh kosong
+    ]);
 
         return redirect()->back()->with('success', 'Ulasan berhasil ditambahkan.');
     }
