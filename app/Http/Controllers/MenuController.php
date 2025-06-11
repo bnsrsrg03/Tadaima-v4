@@ -24,10 +24,16 @@ class MenuController extends Controller
     
     public function minuman()
     {
-        $kategori = Kategori::where('name', 'minuman')->firstOrFail();
-        $menus = $kategori->menus()->get();
-        return view('menu.minuman', compact('menus'));
+    $kategori = Kategori::where('name', 'm')->firstOrFail();
+    $menus = $kategori->menus()->with('ulasan')->get();
+
+    foreach ($menus as $menu) {
+        $menu->rating = round($menu->ulasan->avg('rating'), 1);
     }
+
+    return view('menu.makanan', compact('menus'));
+}   
+
     
     public function cemilan()
     {

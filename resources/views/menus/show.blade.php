@@ -1,81 +1,105 @@
 @extends('layouts.app') 
 
 @section('content')
-<div class="container py-5">
-    <div class="row g-5 align-items-start">
-        <!-- Gambar Menu -->
-        <div class="col-md-6">
-            <img src="{{ asset('storage/' . $menu->image) }}" 
-                 alt="{{ $menu->name }}" 
-                 class="img-fluid rounded-4 shadow-sm"
-                 style="object-fit: cover; max-height: 400px; width: 100%;">
-        </div>
-
-    <div class="d-flex justify-content-between w-100 px-3 text-start">
-        <!-- Kiri: Deskripsi dan Kategori -->
-        <div>
-            <h5 class="fw-bold mb-1">Deskripsi</h5>
-            <p class="mb-2">{{ $menu->description ?? '-' }}</p>
-
-            @if($menu->kategori)
-                <h5 class="fw-bold mb-1">Kategori</h5>
-                <p>{{ $menu->kategori->name }}</p>
-            @endif
-        </div>
-
-        <!-- Kanan: Harga -->
-        <div class="text-end" style="min-width: 120px;">
-            <h5 class="fw-bold mb-1">Harga</h5>
-            <p style="color: #AA1D1D; font-weight: bold;">Rp {{ number_format($menu->price, 0, ',', '.') }}</p>
-        </div>
-    </div>
-
-
-</div>
 
 
 
         <!-- Kolom Kanan: Form Pemesanan -->
-       <div class="col-md-6"> 
-    <div class="border rounded shadow-sm p-4" style="max-width: 500px; margin: 0 auto;">
-        <h5 class="fw-bold text-center mb-3">Format Pemesanan</h5>
+<div class="container py-4">
+    <!-- Judul Menu -->
+    <h2 class="fw-bold mb-4">{{ $menu->name }}</h2>
 
-        <div>
+    <!-- Satu baris: Deskripsi + Form Pemesanan -->
+    <div class="row">
+        <!-- Kolom Kiri -->
+        <div class="col-md-7">
             <div class="mb-3">
-                <label for="nama" class="form-label fw-bold fs-6">Nama</label>
-                <input type="text" id="nama" class="form-control" required>
+                <h5 class="fw-bold">Deskripsi</h5>
+                <p>{{ $menu->description ?? '-' }}</p>
             </div>
 
-            <div class="mb-3 row">
-                <div class="col-8">
-                    <label class="form-label fw-bold fs-6">Menu</label>
-                    <input type="text" id="menu" class="form-control" value="{{ $menu->name }}" readonly>
+            @if($menu->kategori)
+                <div class="mb-3">
+                    <h5 class="fw-bold">Kategori</h5>
+                    <p>{{ $menu->kategori->name }}</p>
                 </div>
-                <div class="col-4">
-                    <label for="jumlah" class="form-label fw-bold fs-6">Jumlah</label>
-                    <input type="number" id="jumlah" class="form-control" min="1" value="1" required>
-                </div>
-            </div>
+            @endif
 
             <div class="mb-3">
-                <label for="waktu_pengambilan" class="form-label fw-bold fs-6">Waktu Pengambilan</label>
-                <input type="text" id="waktu_pengambilan" class="form-control" required>
-                <div class="form-text">Tidak menyediakan sistem pengantaran</div>
+                <h5 class="fw-bold">Harga</h5>
+                <p style="color: #AA1D1D; font-weight: bold;">
+                    Rp {{ number_format($menu->price, 0, ',', '.') }}
+                </p>
             </div>
 
-            <div class="mb-3">
-                <label for="catatan" class="form-label fw-bold fs-6">Catatan Tambahan (opsional)</label>
-                <textarea id="catatan" rows="3" class="form-control"></textarea>
+            <!-- Gambar -->
+            <div class="mb-4">
+                <img src="{{ asset('storage/' . $menu->image) }}"
+                    alt="{{ $menu->name }}"
+                    class="img-fluid rounded-4 shadow-sm"
+                    style="object-fit: cover; max-height: 280px; width:500px;">
             </div>
 
-            <div class="d-grid">
-                <button onclick="kirimPesan()" class="btn" style="background-color: #AA1D1D; color: white;">
-                    <i class="fab fa-whatsapp"></i> Pesan Sekarang
-                </button>
-            </div>
-        </div>
-    </div>
+      <!-- Tombol Kembali & Ulasan -->
+<div class="d-flex gap-2 mt-4">
+    <!-- Tombol Kembali -->
+    <a href="{{ url('/menu.makanan') }}" class="btn btn-secondary">
+        ← Kembali ke Daftar Menu
+    </a>
+
+    <!-- Tombol Buat Ulasan -->
+    <a href="#" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#ulasanModal">
+        Buat Penilaian & Ulasan
+    </a>
 </div>
+
+        </div>
+
+        <!-- Kolom Kanan: Form -->
+        <div class="col-md-5">
+            <div class="border rounded shadow-sm p-4">
+                <h5 class="fw-bold text-center mb-3">Format Pemesanan</h5>
+
+                <div>
+                    <div class="mb-3">
+                        <label for="nama" class="form-label fw-bold fs-6">Nama</label>
+                        <input type="text" id="nama" class="form-control" required>
+                    </div>
+
+                    <div class="mb-3 row">
+                        <div class="col-8">
+                            <label class="form-label fw-bold fs-6">Menu</label>
+                            <input type="text" id="menu" class="form-control" value="{{ $menu->name }}" readonly>
+                        </div>
+                        <div class="col-4">
+                            <label for="jumlah" class="form-label fw-bold fs-6">Jumlah</label>
+                            <input type="number" id="jumlah" class="form-control" min="1" value="1" required>
+                        </div>
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="waktu_pengambilan" class="form-label fw-bold fs-6">Waktu Pengambilan</label>
+                        <input type="text" id="waktu_pengambilan" class="form-control" required>
+                        <div class="form-text">Tidak menyediakan sistem pengantaran</div>
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="catatan" class="form-label fw-bold fs-6">Catatan Tambahan (opsional)</label>
+                        <textarea id="catatan" rows="3" class="form-control"></textarea>
+                    </div>
+
+                    <div class="d-grid">
+                        <button onclick="kirimPesan()" class="btn" style="background-color: #AA1D1D; color: white;">
+                            <i class="fab fa-whatsapp"></i> Kirim Pesanan
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div> <!-- Akhir col-md-5 -->
+    </div> <!-- Akhir row -->
+</div> <!-- Akhir container -->
+
+
 
 <script>
     function kirimPesan() {
@@ -104,6 +128,7 @@
 
 
     <!-- Penilaian Pembeli -->
+     <div class="container mt-1 px-3 px-md-5">
     <div class="mt-5 p-4 border rounded shadow-sm">
         <h5 class="fw-bold">Penilaian Pembeli</h5>
         <div class="d-flex align-items-center">
@@ -125,14 +150,16 @@
         </div>
     </div>
 
-    <!-- Tombol Buat Penilaian -->
-    <div class="mt-4">
-        <a href="#" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#ulasanModal">Buat Penilaian & Ulasan</a>
-    </div>
+
+
+
+    <!-- Tombol Buat Ulasan -->
+ 
 
     <!-- Ulasan -->
     <div class="mt-4">
-        <h5 class="fw-bold mb-3">Ulasan</h5>
+        <h4 class="fw-bold mb-3">Ulasan</h4>
+
         @forelse ($ulasan as $review)
             <div class="border rounded p-3 mb-3">
                 <div class="mb-1 text-warning">
@@ -146,11 +173,12 @@
             <p>Belum ada ulasan.</p>
         @endforelse
 
-  <div class="pagination-links">
-    {{ $ulasan->links() }}
-</div>
+        <div class="pagination-links">
+            {{ $ulasan->links() }}
+        </div>
     </div>
-</div>
+
+</div> <!-- END container -->
 
 <!-- Modal Form Ulasan -->
 <div class="modal fade" id="ulasanModal" tabindex="-1" aria-labelledby="ulasanModalLabel" aria-hidden="true">

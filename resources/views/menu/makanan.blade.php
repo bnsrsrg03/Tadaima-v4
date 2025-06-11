@@ -8,12 +8,7 @@
         @foreach ($menus as $menu)
             <div class="col-lg-3 col-md-6 col-sm-12 mb-4" data-aos="fade-up">
                 <div class="card shadow-lg position-relative card-hover h-100" 
-                     style="border-radius: 20px; overflow: hidden;">
-                     
-                    {{-- Kalau bestseller, tampilkan label best seller --}}
-                    @if ($menu->bestseller)
-                        <img src="{{ asset('assets/images/bestseller.png') }}" alt="Best Seller" class="best-seller-badge">
-                    @endif
+                     style="border-radius: 20px; overflow: hidden;"> 
 
                  <a href="{{ route('menus.show', $menu->id) }}">
     <img src="{{ asset('storage/app/public/' . $menu->image) }}" 
