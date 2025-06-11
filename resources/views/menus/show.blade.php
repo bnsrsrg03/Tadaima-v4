@@ -2,16 +2,10 @@
 
 @section('content')
 
-
-
-        <!-- Kolom Kanan: Form Pemesanan -->
 <div class="container py-4">
-    <!-- Judul Menu -->
     <h2 class="fw-bold mb-4">{{ $menu->name }}</h2>
 
-    <!-- Satu baris: Deskripsi + Form Pemesanan -->
     <div class="row">
-        <!-- Kolom Kiri -->
         <div class="col-md-7">
             <div class="mb-3">
                 <h5 class="fw-bold">Deskripsi</h5>
@@ -37,12 +31,11 @@
                 <img src="{{ asset('storage/' . $menu->image) }}"
                     alt="{{ $menu->name }}"
                     class="img-fluid rounded-4 shadow-sm"
-                    style="object-fit: cover; max-height: 280px; width:500px;">
+                    style="object-fit: cover; max-height: 250px; width:500px;">
             </div>
 
       <!-- Tombol Kembali & Ulasan -->
 <div class="d-flex gap-2 mt-4">
-    <!-- Tombol Kembali -->
     <a href="{{ url('/menu.makanan') }}" class="btn btn-secondary">
         ← Kembali ke Daftar Menu
     </a>
@@ -55,7 +48,7 @@
 
         </div>
 
-        <!-- Kolom Kanan: Form -->
+        <!--Form Pemesanan -->
         <div class="col-md-5">
             <div class="border rounded shadow-sm p-4">
                 <h5 class="fw-bold text-center mb-3">Format Pemesanan</h5>
@@ -95,9 +88,9 @@
                     </div>
                 </div>
             </div>
-        </div> <!-- Akhir col-md-5 -->
-    </div> <!-- Akhir row -->
-</div> <!-- Akhir container -->
+        </div>
+    </div> 
+</div> 
 
 
 
@@ -129,70 +122,67 @@
 
     <!-- Penilaian Pembeli -->
      <div class="container mt-1 px-3 px-md-5">
-    <div class="mt-5 p-4 border rounded shadow-sm">
-        <h5 class="fw-bold">Penilaian Pembeli</h5>
-        <div class="d-flex align-items-center">
-            <span class="fs-2 text-warning me-2">★</span>
-            <strong class="fs-4">{{ number_format($menu->rating, 1) }}/5</strong>
-        </div>
-        <small class="text-muted">{{ $totalPenilaian }} Penilaian, {{ $totalUlasan }} Ulasan</small>
+    <div class="mt-5 p-4 border rounded-4 shadow-sm bg-white">
+        <h4 class="fw-bold mb-3">Penilaian Pembeli</h4>
 
+        <div class="d-flex align-items-center mb-2">
+            <span class="fs-1 text-warning me-2">★</span>
+            <strong class="fs-3">{{ number_format($menu->rating, 1) }}/5</strong>
+        </div>
+        <p class="text-muted">{{ $totalPenilaian }} Penilaian • {{ $totalUlasan }} Ulasan</p>
+
+        <!-- Distribusi Rating -->
         <div class="mt-3">
             @for ($i = 5; $i >= 1; $i--)
-                <div class="d-flex align-items-center mb-1">
-                    <span class="me-2">{{ $i }} ★</span>
-                    <div class="progress flex-grow-1 me-2" style="height: 8px;">
-                        <div class="progress-bar bg-warning" role="progressbar" style="width: {{ $ratingPercentage[$i] ?? 0 }}%;"></div>
+                <div class="d-flex align-items-center mb-2">
+                    <div class="text-nowrap me-2" style="width: 50px;">{{ $i }} ★</div>
+                    <div class="progress flex-grow-1 me-2 rounded-pill" style="height: 10px;">
+                        <div class="progress-bar bg-warning" role="progressbar" 
+                             style="width: {{ $ratingPercentage[$i] ?? 0 }}%; transition: width 0.5s;">
+                        </div>
                     </div>
-                    <span>({{ $ratingCount[$i] ?? 0 }})</span>
+                    <div style="width: 40px;">({{ $ratingCount[$i] ?? 0 }})</div>
                 </div>
             @endfor
         </div>
     </div>
-
-
-
-
-    <!-- Tombol Buat Ulasan -->
  
 
     <!-- Ulasan -->
     <div class="mt-4">
         <h4 class="fw-bold mb-3">Ulasan</h4>
+@forelse ($ulasan as $review)
+    <div class="review-card bg-white">
+        <div class="mb-1 text-warning">
+            @for ($i = 1; $i <= 5; $i++)
+                <span>{{ $i <= $review->rating ? '★' : '☆' }}</span>
+            @endfor
+        </div>
+        <p class="mb-0">{{ $review->comment }}</p>
+    </div>
+@empty
+    <p>Belum ada ulasan.</p>
+@endforelse
 
-        @forelse ($ulasan as $review)
-            <div class="border rounded p-3 mb-3">
-                <div class="mb-1 text-warning">
-                    @for ($i = 1; $i <= 5; $i++)
-                        <span>{{ $i <= $review->rating ? '★' : '☆' }}</span>
-                    @endfor
-                </div>
-                <p class="mb-0">{{ $review->comment }}</p>
-            </div>
-        @empty
-            <p>Belum ada ulasan.</p>
-        @endforelse
+
 
         <div class="pagination-links">
             {{ $ulasan->links() }}
         </div>
     </div>
 
-</div> <!-- END container -->
+</div>
 
 <!-- Modal Form Ulasan -->
 <div class="modal fade" id="ulasanModal" tabindex="-1" aria-labelledby="ulasanModalLabel" aria-hidden="true">
   <div class="modal-dialog modal-dialog-centered">
     <div class="modal-content border-primary">
       <div class="modal-body text-center">
-        <!-- Rating (bintang) -->
         <div class="mb-3">
           @for ($i = 1; $i <= 5; $i++)
             <i class="fa fa-star-o" id="star-{{ $i }}" onclick="setRating({{ $i }})" style="cursor: pointer; font-size: 24px;"></i>
           @endfor
         </div>
-
-        <!-- Form ulasan -->
         <form action="{{ route('ulasan.store', $menu->id) }}" method="POST">
             @csrf
             <input type="hidden" name="rating" id="rating-value" value="0">
@@ -200,7 +190,6 @@
             <button type="submit" class="btn btn-primary">Kirim</button>
         </form>
 
-        <!-- Catatan -->
         <p class="text-danger mt-2" style="font-size: 12px;">
             *Setelah mengirim ulasan, ulasan Anda akan ditampilkan secara permanen dan tidak dapat dihapus atau diedit, kecuali oleh admin yang mengelolanya.
         </p>
@@ -214,12 +203,10 @@
 @endsection
 
 @push('styles')
-<!-- Font Awesome for star icons -->
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 @endpush
 
 @push('scripts')
-<!-- Script untuk mengatur rating -->
 <script>
     function setRating(rating) {
         document.getElementById('rating-value').value = rating;
@@ -237,6 +224,31 @@
 </script>
 @endpush
 <style>
+.review-card {
+    background-color: #fff;
+    border-radius: 16px;
+    padding: 24px;
+    margin-bottom: 24px;
+
+    /* Bayangan mewah dan dalam */
+    box-shadow:
+        0 4px 8px rgba(0, 0, 0, 0.05),
+        0 12px 24px rgba(0, 0, 0, 0.1),
+        0 0 8px rgba(255, 215, 0, 0.05); 
+
+    border: 1px solid rgba(0, 0, 0, 0.05);
+    transition: all 0.3s ease-in-out;
+}
+
+.review-card:hover {
+    transform: translateY(-6px);
+    box-shadow:
+        0 6px 16px rgba(0, 0, 0, 0.07),
+        0 20px 40px rgba(0, 0, 0, 0.12),
+        0 0 12px rgba(255, 215, 0, 0.08); 
+}
+
+
 .pagination-links nav {
     display: flex;
     justify-content: center;
@@ -313,7 +325,8 @@
     width: 16px;
     height: 16px;
 }
-.pagination-links nav > div:first-of-type {
-    display: none!important;
+.pagination-links nav > div > div:first-child {
+    display: none !important;
 }
+
 </style>
