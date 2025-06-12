@@ -25,9 +25,9 @@ public function store(Request $request, $menuId)
         'menu_id' => $menuId,
         'user_id' => auth()->id(),
         'rating' => $request->rating,
-        'comment' => $request->comment, // boleh kosong
+        'comment' => $request->comment, 
     ]);
+return redirect()->to(url()->previous() . '#ulasan')->with('success', 'Ulasan berhasil ditambahkan.');
 
-        return redirect()->back()->with('success', 'Ulasan berhasil ditambahkan.');
     }
 }

@@ -148,10 +148,10 @@
         </div>
     </div>
  
-
-    <!-- Ulasan -->
-    <div class="mt-4">
-        <h4 class="fw-bold mb-3">Ulasan</h4>
+  <!-- Ulasan -->
+<div class="mt-4" id="ulasan">
+  
+    <h4 class="fw-bold mb-3">Ulasan</h4>
 @forelse ($ulasan as $review)
     <div class="review-card bg-white">
         <div class="mb-1 text-warning">
@@ -237,13 +237,31 @@
 <script>
     function validateRating() {
         const rating = document.getElementById('rating-value').value;
+
+        // Hapus pesan lama jika ada
+        const oldAlert = document.getElementById('rating-alert');
+        if (oldAlert) {
+            oldAlert.remove();
+        }
+
         if (rating === '0') {
-            alert('Silakan pilih rating bintang terlebih dahulu.');
+            const msg = document.createElement('div');
+            msg.id = 'rating-alert';
+            msg.style.color = 'red';
+            msg.style.marginTop = '10px';
+            msg.innerText = 'Silakan pilih rating bintang terlebih dahulu.';
+
+            // Sisipkan setelah elemen rating
+            const ratingEl = document.getElementById('rating-value');
+            ratingEl.parentNode.insertBefore(msg, ratingEl.nextSibling);
+
             return false;
         }
+
         return true;
     }
 </script>
+
 
 @endpush
 <style>
@@ -253,7 +271,6 @@
     padding: 24px;
     margin-bottom: 24px;
 
-    /* Bayangan mewah dan dalam */
     box-shadow:
         0 4px 8px rgba(0, 0, 0, 0.05),
         0 12px 24px rgba(0, 0, 0, 0.1),
