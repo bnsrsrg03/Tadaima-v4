@@ -15,13 +15,17 @@ class Ulasan extends Model
     // Izinkan semua field yang akan diisi lewat controller
     protected $fillable = ['menu_id', 'rating', 'comment'];
 
-   public function getCommentAttribute($value)
-{
-    if (is_null($value)) {
-        return null; // atau bisa juga return ''; tergantung kebutuhan
+    public function getCommentAttribute($value)
+    {
+        if (is_null($value)) {
+            return null; // atau bisa juga return ''; tergantung kebutuhan
+        }
+
+        return BadWordFilter::filter($value);
     }
 
-    return BadWordFilter::filter($value);
-}
-
+    public function menu()
+    {
+        return $this->belongsTo(Menu::class);
+    }
 }
