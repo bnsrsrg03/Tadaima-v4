@@ -10,7 +10,7 @@
                 <div class="card shadow-lg position-relative card-hover h-100" 
                      style="border-radius: 20px; overflow: hidden;"> 
 
-                 <a href="{{ route('menus.show', $menu->id) }}">
+
     <img src="{{ asset('storage/' . $menu->image) }}" 
          alt="{{ $menu->name }}" 
          class="card-img-top img-fluid"
