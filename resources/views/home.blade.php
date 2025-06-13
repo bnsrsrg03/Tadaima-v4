@@ -224,13 +224,15 @@
     text-align: center;
   }
 
-  .about .text h2 {
-    font-size: 28px;
-  }
+.about .text h2 {
+    font-size: 24px;
+}
 
-  .about .text p {
-    font-size: 16px;
-  }
+.about .text p {
+    font-size: 14px;
+    line-height: 1.5;
+}
+
 
   .about .btn {
     padding: 12px 24px;
@@ -278,24 +280,28 @@
     border-top: none;
 }
 
-/* Tambahkan ini di bawah style existing */
-@media (max-width: 768px) {
-    .hero h1 {
-        font-size: 48px;
-    }
 
-    .hero p {
-        font-size: 16px;
-    }
+@media (max-width: 768px) {
+  .hero h1 {
+    font-size: 32px; 
+}
+
+.hero p {
+    font-size: 14px; 
+    top: 65%; 
+}
+
 
     .about .text {
         width: 100%;
     }
 
-    .custom-frame {
-        width: 100% !important;
-        max-width: 100%;
-    }
+ .custom-frame {
+    width: 100% !important;
+    max-width: 350px; 
+    margin: 0 auto;
+}
+
 
     .custom-frame img {
         width: 100%;
@@ -314,9 +320,14 @@
         padding: 20px;
     }
 
-    .typing {
-        font-size: 20px;
-    }
+  .typing {
+    font-size: 16px;
+    animation:
+      fadeInText 1.5s forwards 0.3s,
+      typing 2s steps(20) forwards 0.3s,
+      blink 0.6s step-end infinite 2.5s;
+}
+
 
     .btn-whatsapp {
         padding: 8px 16px;
